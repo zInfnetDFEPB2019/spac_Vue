@@ -1,4 +1,4 @@
-###`Vue version`
+`Vue version`
 
 spa<sup>[c]</sup> 
 --------
