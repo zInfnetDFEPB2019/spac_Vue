@@ -2,8 +2,9 @@
   <div>
 
     <div>
-      <b-navbar toggleable="lg" class="navbarTop" sticky>
-        <b-navbar-brand href="#"><img src="../assets/img/home_icon_48px.png" height="24" width="24" alt="Home icon"/></b-navbar-brand>
+      <b-navbar toggleable="lg" class="navbarTopHome" sticky>
+          <b-navbar-brand href="#"><b-img id="iconHomeHeaderHome" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/home_icon_48px.png"
+                                          height="24" width="24" alt="Home icon"></b-img></b-navbar-brand>
 
 <!--        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>-->
 
@@ -14,27 +15,28 @@
 <!--              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>-->
 <!--            </b-nav-form>-->
 
-            <b-dropdown class="b-dropdown" size="sm" variant="outline-dark" toggle-class="text-decoration-none" no-caret dropleft>
-              <template v-slot:button-content>
-                <img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/menu_icon_48px.png" height="24" width="24" alt="spac brand logo"/>
-                <!--                &#x2630;<span class="sr-only">Search</span>-->
-              </template>
-              <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>
-                <b-dropdown-item href="#">Comet Search</b-dropdown-item>
-                <b-dropdown-item href="#">Space Weather</b-dropdown-item>
-                <b-dropdown-item href="#">Picture of the day</b-dropdown-item>
-              <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>
-                <b-dropdown-item href="#">Mars Weather</b-dropdown-item>
-                <b-dropdown-item href="#">Photos</b-dropdown-item>
-              <b-dropdown-header class="dropdown-header">EARTH</b-dropdown-header>
-                <b-dropdown-item href="#">Overview</b-dropdown-item>
-                <b-dropdown-item href="#">Local Information</b-dropdown-item>
-              <b-dropdown-header class="dropdown-header">ISS</b-dropdown-header>
-                <b-dropdown-item href="#">Crew</b-dropdown-item>
-                <b-dropdown-item href="#">Current Location</b-dropdown-item>
-                <b-dropdown-item href="#">Pass Predictions</b-dropdown-item>
-                <b-dropdown-item href="#">Animated Map</b-dropdown-item>
-            </b-dropdown>
+              <Dropdown/>
+<!--            <b-dropdown class="b-dropdown" size="sm" variant="outline-dark" toggle-class="text-decoration-none" no-caret dropleft>-->
+<!--              <template v-slot:button-content>-->
+<!--                <img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/menu_icon_48px.png" height="24" width="24" alt="spac brand logo"/>-->
+<!--                &lt;!&ndash;                &#x2630;<span class="sr-only">Search</span>&ndash;&gt;-->
+<!--              </template>-->
+<!--                <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Comet Search</router-link></b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Space Weather</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Picture of the day</b-dropdown-item>-->
+<!--                <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Mars Weather</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Photos</b-dropdown-item>-->
+<!--                <b-dropdown-header class="dropdown-header">EARTH</b-dropdown-header>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Overview</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Local Information</b-dropdown-item>-->
+<!--                <b-dropdown-header class="dropdown-header">ISS</b-dropdown-header>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Crew</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Current Location</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Pass Predictions</b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader">Animated Map</b-dropdown-item>-->
+<!--            </b-dropdown>-->
 
 
 
@@ -60,7 +62,7 @@
           </b-navbar-nav>
       </b-navbar>
 
-      <b-container>
+      <div class="container" id="divLogoHome">
         <b-row>
           <b-col>
             <b-img
@@ -76,7 +78,7 @@
         <b-row class="row justify-content-center">
           <p class="sloganHome">Think outside the planet</p>
         </b-row>
-      </b-container>
+      </div>
 
       <b-navbar toggleable="lg" class="navbarFooter" fixed="bottom">
           <b-navbar-brand href="#"><b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/developer_icon_48px.png" height="24" width="24" alt="Home icon"/></b-navbar-brand>
@@ -99,9 +101,11 @@
 </template>
 
 <script>
+import Dropdown from "@/components/Dropdown";
 export default {
   name: 'Home',
-  props: {
+    components: {Dropdown},
+    props: {
     msg: String
   }
 }
@@ -128,85 +132,10 @@ export default {
 
   }
 
-  @font-face {
-    font-family: 'cabinbold';
-    src: url('../assets/fonts/cabin/cabin-bold-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinbold_italic';
-    src: url('../assets/fonts/cabin/cabin-bolditalic-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-bolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinitalic';
-    src: url('../assets/fonts/cabin/cabin-italic-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinmedium';
-    src: url('../assets/fonts/cabin/cabin-medium-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinmedium_italic';
-    src: url('../assets/fonts/cabin/cabin-mediumitalic-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-mediumitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinregular';
-    src: url('../assets/fonts/cabin/cabin-regular-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinsemibold';
-    src: url('../assets/fonts/cabin/cabin-semibold-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'cabinsemibold_italic';
-    src: url('../assets/fonts/cabin/cabin-semibolditalic-webfont.woff2') format('woff2'),
-    url('../assets/fonts/cabin/cabin-semibolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  .iconFooter {
-    margin-right: -25px !important;
-  }
-
-  .iconHover:hover {
-    transform: scale(1.12);
-  }
-
-  .navbarTop {
-    padding: 24px !important;
-  }
-
-  .navbarFooter {
-    margin-bottom: -5px !important;
-    padding: 24px !important;
+  .navbarTopHome {
+      padding: 24px !important;
+      width: 100% !important;
+      align-items: baseline;
   }
 
   .imgHome {
@@ -259,7 +188,13 @@ export default {
     display: inline-block;
     margin: 0 10px;
   }
-  a {
-    color: #42b983;
+
+  #iconHomeHeaderHome {
+      margin-top: -3px;
+      margin-left: -3px;
+  }
+
+  #divLogoHome {
+      margin-top: 45px;
   }
 </style>

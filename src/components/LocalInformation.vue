@@ -5,9 +5,9 @@
             <section>
                 <div>
                     <b-row class="contentTitle">
-                        <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_search.png"
-                               height="75" width="75" alt="comet search icon section"></b-img>
-                        <p class="titleSection">COMET SEARCH</p>
+                        <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/local_information.png"
+                               height="75" width="75" alt="local information icon section"></b-img>
+                        <p class="titleSection">LOCAL INFORMATION</p>
                     </b-row>
                 </div>
 
@@ -134,7 +134,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 
     .imageSection {
         margin-left: 50px;
@@ -146,6 +146,7 @@
         text-align: left !important;
         font-size: 30px;
         margin-left: 25px;
+        margin-top: 20px !important;
         align-self: self-end;
     }
 
