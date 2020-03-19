@@ -1,24 +1,41 @@
 <template>
     <div>
-        <div>
-            <b-row class="contentDivMarsWeatherTemperature">
-            <b-img class="imageDivMarsWeatherTemperature" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_temperature.png"
-                   height="50" width="50" alt="mars temperature icon"></b-img>
-            <p class="titleDivMarsWeatherTemperature">Temperature <sup>(ºC)</sup></p>
-        </b-row>
-        </div>
+        <div id="divContentHolderISS">
+            <Header/>
 
-        <div class="container" id="divContainerTableMarsWeatherTemperature">
-            <b-table sticky-header=true id="tableMarsWeatherTemperature" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
-            </b-table>
+            <section id="sectionISS">
+                <div>
+                    <b-row class="contentTitle">
+                        <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_section_logo.png"
+                               height="75" width="75" alt="iss icon section"></b-img>
+                        <p class="titleSection">ISS</p>
+                    </b-row>
+                </div>
+
+                <div>
+                    <Id/>
+                    <LatLong/>
+                    <Metrics/>
+                    <Crew/>
+                </div>
+            </section>
+
+            <Footer/>
         </div>
     </div>
 </template>
 
 <script>
+    import Header from "@/components/Header";
+    import Footer from "@/components/Footer";
+    import Id from "@/components/ISS/Id";
+    import Metrics from "@/components/ISS/Metrics";
+    import LatLong from "@/components/ISS/Location";
+    import Crew from "@/components/ISS/Crew";
+
     export default {
-        name: "MarsTemperature",
-        components: {},
+        name: "ISS",
+        components: {Crew, LatLong, Metrics, Id, Footer, Header},
         data() {
             return {
                 fields: [
@@ -43,37 +60,38 @@
     }
 </script>
 
-<style scoped>
+<style>
 
-    .imageDivMarsWeatherTemperature {
-        margin-left: 100px;
+    #sectionISS {
+        margin-bottom: 100px !important
     }
 
-    .titleDivMarsWeatherTemperature {
+    .imageSection {
+        margin-left: 50px;
+    }
+
+    .titleSection {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: left !important;
-        font-size: 20px;
-        margin-left: 20px;
-        margin-top: 7px;
+        font-size: 30px;
+        margin-left: 25px;
         align-self: self-end;
     }
 
-    .contentDivMarsWeatherTemperature {
-        margin-top: 50px !important;
-        margin-left: 45px !important;
+    .contentTitle {
+        margin-top: 5px !important;
+        margin-left: 25px !important;
     }
 
-    #tableMarsWeatherTemperature {
-        color: #E2E2E2;
-        background-color: #181818;
+    #divContentHolderISS {
+        position: relative;
     }
 
-    .bg-b-table-default {
-        background-color: #181818 !important;
-    }
-
-    #divContainerTableMarsWeatherTemperature {
-        margin-top: 25px;
+    td {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 15px;
+        padding-top: 15px;
     }
 </style>

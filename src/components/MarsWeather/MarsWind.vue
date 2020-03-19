@@ -44,7 +44,6 @@
 </script>
 
 <style>
-
     .imageDivMarsWeatherWind {
         margin-left: 100px;
     }

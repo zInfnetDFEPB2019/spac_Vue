@@ -6,7 +6,7 @@
             </template>
             <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Comet Search</router-link></b-dropdown-item>
-            <b-dropdown-item class="textRouterLinkHeader">Space Weather</b-dropdown-item>
+            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/spaceweather">Space Weather</router-link></b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader">Picture of the day</b-dropdown-item>
             <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/marsweather">Mars Weather</router-link></b-dropdown-item>
@@ -15,7 +15,7 @@
             <b-dropdown-item class="textRouterLinkHeader">Overview</b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/localinformation">Local Information</router-link></b-dropdown-item>
             <b-dropdown-header class="dropdown-header">ISS</b-dropdown-header>
-            <b-dropdown-item class="textRouterLinkHeader">Crew</b-dropdown-item>
+            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/iss">Overview</router-link></b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader">Current Location</b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader">Pass Predictions</b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader">Animated Map</b-dropdown-item>

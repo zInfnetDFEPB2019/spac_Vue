@@ -16,7 +16,7 @@
 <!--                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/menu_icon_48px.png" height="24" width="24" alt="spac brand logo"></b-img>-->
 <!--                            </template>-->
 <!--                            <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>-->
-<!--                            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Comet Search</router-link></b-dropdown-item>-->
+<!--                            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Space Search</router-link></b-dropdown-item>-->
 <!--                            <b-dropdown-item class="textRouterLinkHeader">Space Weather</b-dropdown-item>-->
 <!--                            <b-dropdown-item class="textRouterLinkHeader">Picture of the day</b-dropdown-item>-->
 <!--                            <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>-->

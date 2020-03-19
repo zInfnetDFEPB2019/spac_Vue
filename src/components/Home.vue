@@ -22,7 +22,7 @@
 <!--                &lt;!&ndash;                &#x2630;<span class="sr-only">Search</span>&ndash;&gt;-->
 <!--              </template>-->
 <!--                <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>-->
-<!--                    <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Comet Search</router-link></b-dropdown-item>-->
+<!--                    <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Space Search</router-link></b-dropdown-item>-->
 <!--                    <b-dropdown-item class="textRouterLinkHeader">Space Weather</b-dropdown-item>-->
 <!--                    <b-dropdown-item class="textRouterLinkHeader">Picture of the day</b-dropdown-item>-->
 <!--                <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>-->
@@ -45,7 +45,7 @@
 <!--                <img src="../assets/img/menu_icon_48px.png" height="24" width="24" alt="spac brand logo"/>-->
 <!--                &lt;!&ndash;                &#x2630;<span class="sr-only">Search</span>&ndash;&gt;-->
 <!--              </template>-->
-<!--              <b-dropdown-item href="#" data-toggle="tooltip" data-html="true" title="Comet Search">SPACE</b-dropdown-item>-->
+<!--              <b-dropdown-item href="#" data-toggle="tooltip" data-html="true" title="Space Search">SPACE</b-dropdown-item>-->
 <!--              <b-dropdown-item href="#">MARS</b-dropdown-item>-->
 <!--              <b-dropdown-item href="#">EARTH</b-dropdown-item>-->
 <!--              <b-dropdown-item href="#">ISS</b-dropdown-item>-->

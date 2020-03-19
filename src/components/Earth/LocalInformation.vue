@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div id="divContentHolderCometSearch">
+        <div id="divContentHolderLocalInformation">
             <Header/>
-            <section>
+            <section id="sectionLocalInformation">
                 <div>
                     <b-row class="contentTitle">
                         <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/local_information.png"
@@ -12,56 +12,11 @@
                 </div>
 
                 <div>
-                    <b-form-row id="formInputCometSearch">
-                        <b-col cols="3">
-                            <b-form-group label-cols="4" label-cols-lg="2" label-size="sm"
-                                             id="firstDate"
-                                             label="Start:"
-                                             label-for="input_firstDate">
-                            <b-form-datepicker id="input_firstDate"
-                                               v-model="value"
-                                               class="mb-2"
-                                               size="sm"></b-form-datepicker>
-                        </b-form-group>
-                        </b-col>
-                        <b-col cols="3">
-                            <b-form-group label-cols="4" label-cols-lg="2" label-size="sm"
-                                          id="secondDate"
-                                          label="End:"
-                                          label-for="input_secondDate">
-                                <b-form-datepicker id="input_secondDate"
-                                                   v-model="value"
-                                                   class="mb-2"
-                                                   size="sm"></b-form-datepicker>
-                            </b-form-group>
-                        </b-col>
-                        <b-col cols="1">
-                            <b-button type="submit"
-                                      class="buttonCometSearch"
-                                      variant="dark"><b-img id="buttonSubmitCometSearch"
-                                                            src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/magnifier_icon_24px.png"
-                                                            width="18" height="18" alt="magnifier icon for search comet button"></b-img></b-button>
-                        </b-col>
-                    </b-form-row>
+                    <Sun/>
+                    <Moon/>
+                    <Coordinates/>
                 </div>
-
-                <div class="container" id="divContainerTableCometSearch">
-                    <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
-<!--                        <thead>-->
-<!--                            <tr> {{ fields.key[0] }} </tr>-->
-<!--                            <tr> {{ fields.key[1] }} </tr>-->
-<!--                            <tr> {{ fields.key[2] }} </tr>-->
-<!--                            <tr> {{ fields.key[3] }} </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                            <tr>{{ items.id }}</tr>-->
-<!--                            <tr>{{ items.name }}</tr>-->
-<!--                            <tr>{{ items.absolute_magnitude }}</tr>-->
-<!--                            <tr>{{ items.close_approach }}</tr>-->
-<!--                        </tbody>-->
-                    </b-table>
-                </div>
-
+                
             </section>
             <Footer/>
         </div>
@@ -71,9 +26,12 @@
 <script>
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
+    import Sun from "@/components/Earth/Sun";
+    import Moon from "@/components/Earth/Moon";
+    import Coordinates from "@/components/Earth/Coordinates";
     export default {
-        name: "CometSearch",
-        components: {Footer, Header},
+        name: "LocalInformation",
+        components: {Coordinates, Moon, Sun, Footer, Header},
         data() {
             return {
                 fields: [
@@ -135,7 +93,6 @@
 </script>
 
 <style scoped>
-
     .imageSection {
         margin-left: 50px;
     }
@@ -163,44 +120,15 @@
         margin: 0;
     }
 
-    .buttonCometSearch {
-        margin-left: -40px;
-        transform: scale(0.80);
-    }
-
-    #buttonSubmitCometSearch {
-        margin-top: -6px;
-    }
-
-    #formInputCometSearch {
-        margin-top: 25px;
-        padding: 5px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #divContentHolderCometSearch {
+    #divContentHolderLocalInformation {
         position: relative;
     }
-
-    #firstDate {
-        margin-top: 10px;
-    }
-
-    #secondDate {
-        margin-top: 10px;
-    }
-
-    #tableCometSearchSummarized {
-        color: #E2E2E2;
-        background-color: #181818;
-    }
-
+    
     .bg-b-table-default {
         background-color: #181818 !important;
     }
 
-    #divContainerTableCometSearch {
-        margin-top: 50px;
+    #sectionLocalInformation {
+        margin-bottom: 25px !important;
     }
 </style>

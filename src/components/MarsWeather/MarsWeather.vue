@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="divContentHolderCometSearch">
+        <div id="divContentHolderMarsWeather">
             <Header/>
 
             <section id="sectionMarsWeather">
@@ -40,9 +40,9 @@
 <script>
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
-    import MarsTemperature from "@/components/MarsTemperature";
-    import MarsWind from "@/components/MarsWind";
-    import MarsPressure from "@/components/MarsPressure";
+    import MarsTemperature from "@/components/MarsWeather/MarsTemperature";
+    import MarsWind from "@/components/MarsWeather/MarsWind";
+    import MarsPressure from "@/components/MarsWeather/MarsPressure";
     export default {
         name: "MarsWeather",
         components: {MarsPressure, MarsWind, MarsTemperature, Footer, Header},
@@ -76,12 +76,12 @@
         margin-bottom: 100px !important
     }
 
-    .imageSection {
-        margin-left: 50px;
+    .bg-b-table-default {
+        color: #E2E2E2 !important;
     }
 
-    .imageDivTemperature {
-        margin-left: 100px;
+    .imageSection {
+        margin-left: 50px;
     }
 
     .titleSection {
@@ -93,27 +93,12 @@
         align-self: self-end;
     }
 
-    .titleDivMarsTemperature {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: left !important;
-        font-size: 20px;
-        margin-left: 20px;
-        margin-top: 6px;
-        align-self: self-end;
-    }
-
     .contentTitle {
         margin-top: 5px !important;
         margin-left: 25px !important;
     }
 
-    .contentDivs {
-        margin-top: 50px !important;
-        margin-left: 45px !important;
-    }
-
-    #divContentHolderCometSearch {
+    #divContentHolderMarsWeather {
         position: relative;
     }
 
@@ -126,7 +111,4 @@
         background-color: #181818 !important;
     }
 
-    #divContainerTableMarsTemperature {
-        margin-top: 25px;
-    }
 </style>
