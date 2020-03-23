@@ -28,15 +28,15 @@
                 <tr>
                     <td>
                         <p>Altitude</p>
-                        <p>415.15 km</p>
+                        <p> {{ allISSData.altitude.toFixed(2) }} km</p>
                     </td>
                     <td>
                         <p>Velocity</p>
-                        <p>27601.32 km/h</p>
+                        <p> {{ allISSData.velocity.toFixed(2) }} km/h</p>
                     </td>
                     <td>
                         <p>Visibility</p>
-                        <p>Daylight</p>
+                        <p>{{ allISSData.visibility.charAt(0).toUpperCase() }}{{ allISSData.visibility.slice(1) }}</p>
                     </td>
                 </tr>
             </table>
@@ -45,9 +45,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Metrics",
-        components: {},
+        methods: {
+            ...mapActions(["getISSData"]),
+        },
+        computed:
+            mapGetters(["allISSData"]),
+        created() {
+            this.getISSData();
+        }
     }
 </script>
 

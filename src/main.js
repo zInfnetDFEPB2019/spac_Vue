@@ -6,6 +6,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router'
 import { ImagePlugin } from 'bootstrap-vue'
 import VueCarousel from '@chenfengyuan/vue-carousel';
+import store from "./store";
 
 Vue.config.productionTip = false;
 
@@ -17,6 +18,7 @@ Vue.use(ImagePlugin);
 Vue.use(VueCarousel);
 
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app');

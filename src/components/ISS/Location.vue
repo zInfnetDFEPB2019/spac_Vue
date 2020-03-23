@@ -24,11 +24,11 @@
                 <tr>
                     <td>
                         <p>Latitude</p>
-                        <p>50.610</p>
+                        <p>{{ allISSData.latitude.toFixed(3) }}</p>
                     </td>
                     <td>
                         <p>Longitude</p>
-                        <p>54.639</p>
+                        <p>{{ allISSData.longitude.toFixed(3) }}</p>
                     </td>
                 </tr>
             </table>
@@ -37,9 +37,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Location",
-        components: {},
+        methods: {
+            ...mapActions(["getISSData"]),
+        },
+        computed:
+            mapGetters(["allISSData"]),
+        created() {
+            this.getISSData();
+        }
     }
 </script>
 

@@ -11,11 +11,10 @@
 
         <div>
             <table align="center">
-                <tr>
-                    <td>
-                        <p>Andrew Morgan</p>
-                        <p>Oleg Skripochka</p>
-                        <p>Jessica Meir</p>
+                <tr >
+                    <td v-for="member in allMembers"
+                        :key="member.name">
+                        <router-link :to="`https://google.com/search?q=${member.name}`"><p>{{ member.name }}</p></router-link>
                     </td>
                 </tr>
             </table>
@@ -24,9 +23,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Crew",
-        components: {},
+        methods: {
+            ...mapActions(["getMembers"]),
+        },
+        computed:
+            mapGetters(["allMembers"]),
+        created() {
+            this.getMembers();
+        }
     }
 </script>
 

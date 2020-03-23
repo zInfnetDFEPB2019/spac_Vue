@@ -20,7 +20,7 @@
                 <tr>
                     <td>
                         <p>Satellite Number</p>
-                        <p>25544</p>
+                        <p>{{ allISSData.id }}</p>
                     </td>
                 </tr>
             </table>
@@ -29,9 +29,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Id",
-        components: {},
+        methods: {
+            ...mapActions(["getISSData"]),
+        },
+        computed:
+            mapGetters(["allISSData"]),
+        created() {
+            this.getISSData();
+        }
     }
 </script>
 
