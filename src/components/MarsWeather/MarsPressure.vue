@@ -5,7 +5,7 @@
             <b-img class="imageDivMarsWeatherPressure" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_pressure.png"
                    height="50" width="50" alt="mars pressure icon"></b-img>
                 <p class="titleDivMarsWeatherPressure">Pressure <sup>(Pa)</sup></p>
-        </b-row>
+            </b-row>
         </div>
 
         <div class="container" id="divContainerTableMarsWeatherPressure">
