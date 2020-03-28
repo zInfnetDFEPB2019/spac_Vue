@@ -1,0 +1,29 @@
+import axios from "axios";
+
+const state = {
+    marsWeather:[]
+};
+const getters = {
+    allMarsWeather: state => state.marsWeather
+};
+
+const actions = {
+    getMarsWeather({ commit }) {
+        axios.get(
+            "https://api.nasa.gov/insight_weather/?api_key=5ZuQWT0HluYL1cXTkwZTSuGAg21iQ2XqnwzgSX4Q&feedtype=json&ver=1.0"
+        ).then((response) => {
+            commit('getMarsWeather', response.data);
+            console.log(response.data);
+        });
+    },
+};
+const mutations = {
+    getMarsWeather: (state, marsWeather) => (state.marsWeather = marsWeather),
+};
+
+export default {
+    state,
+    getters,
+    actions,
+    mutations,
+};

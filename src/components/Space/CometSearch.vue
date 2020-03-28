@@ -46,8 +46,11 @@
                 </div>
 
                 <div class="container" id="divContainerTableCometSearch">
-                    <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
-                    </b-table>
+                    <div style="border: 1px solid #343a40; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
+                        </b-table>
+                    </div>
+
                 </div>
 
             </section>

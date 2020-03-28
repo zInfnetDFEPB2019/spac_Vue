@@ -28,15 +28,15 @@
                 <tr>
                     <td>
                         <p>Moonrise</p>
-                        <p>02:38</p>
+                        <p>{{ allGeolocationData.moonrise }}</p>
                     </td>
                     <td>
                         <p>Moonset</p>
-                        <p>15:27</p>
+                        <p>{{ allGeolocationData.moonset }}</p>
                     </td>
                     <td>
                         <p>Moon Distance</p>
-                        <p>393573.45 km</p>
+                        <p>{{ allGeolocationData.moon_distance.toFixed(2) }} km</p>
                     </td>
                 </tr>
             </table>
@@ -45,9 +45,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Moon",
-        components: {},
+        methods: {
+            ...mapActions(["getGeolocationData"]),
+        },
+        computed:
+            mapGetters(["allGeolocationData"]),
+        created() {
+            this.getGeolocationData();
+        }
     }
 </script>
 

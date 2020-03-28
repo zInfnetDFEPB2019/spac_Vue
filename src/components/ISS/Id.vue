@@ -6,7 +6,7 @@
                        src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/hashtag.png"
                        height="40" width="40" alt="hashtag icon"></b-img>
                 <p class="titleDivISSId">ID</p>
-        </b-row>
+            </b-row>
         </div>
 
         <div>

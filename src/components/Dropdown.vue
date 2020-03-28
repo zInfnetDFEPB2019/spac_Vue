@@ -7,7 +7,7 @@
             <b-dropdown-header class="dropdown-header">SPACE</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/cometsearch">Comet Search</router-link></b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/spaceweather">Space Weather</router-link></b-dropdown-item>
-            <b-dropdown-item class="textRouterLinkHeader">Picture of the day</b-dropdown-item>
+            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/pictureoftheday">Picture of the day</router-link></b-dropdown-item>
             <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/marsweather">Mars Weather</router-link></b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader">Photos</b-dropdown-item>

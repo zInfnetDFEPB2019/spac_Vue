@@ -6,7 +6,7 @@
                        src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/pass_predictions.png"
                        height="50" width="50" alt="metrics icon"></b-img>
                 <p class="titleDivISSLocation">Location</p>
-        </b-row>
+            </b-row>
         </div>
 
         <div>

@@ -23,10 +23,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <p>-23.011502</p>
+                        <p>{{ allGeolocationData.location.latitude.toFixed(3) }}</p>
                     </td>
                     <td>
-                        <p>-43.307318</p>
+                        <p>{{ allGeolocationData.location.longitude.toFixed(3) }}</p>
                     </td>
                 </tr>
             </table>
@@ -35,9 +35,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Coordinates",
-        components: {},
+        methods: {
+            ...mapActions(["getGeolocationData"]),
+        },
+        computed:
+            mapGetters(["allGeolocationData"]),
+        created() {
+            this.getGeolocationData();
+        }
     }
 </script>
 

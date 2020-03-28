@@ -16,9 +16,18 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "MarsTemperature",
         components: {},
+        methods: {
+            ...mapActions(["getMarsWeather"]),
+        },
+        computed:
+            mapGetters(["allMarsWeather"]),
+        created() {
+            this.getMarsWeather();
+        },
         data() {
             return {
                 fields: [

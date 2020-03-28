@@ -28,23 +28,31 @@
                         <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/solar_noon_2.png"
                                height="50" width="50" alt="solar noon icon"></b-img>
                     </td>
+                    <td>
+                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sun_distance.png"
+                               height="50" width="50" alt="sun distance icon"></b-img>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Sunrise</p>
-                        <p>05:57</p>
+                        <p>{{ allGeolocationData.sunrise }}</p>
                     </td>
                     <td>
                         <p>Sunset</p>
-                        <p>18:05</p>
+                        <p>{{ allGeolocationData.sunset }}</p>
                     </td>
                     <td>
                         <p>Day Length</p>
-                        <p>12:08</p>
+                        <p>{{ allGeolocationData.day_length }}</p>
                     </td>
                     <td>
                         <p>Solar Noon</p>
-                        <p>11:57</p>
+                        <p>{{ allGeolocationData.solar_noon }}</p>
+                    </td>
+                    <td>
+                        <p>Sun Distance</p>
+                        <p>{{ allGeolocationData.sun_distance.toFixed(2) }} km</p>
                     </td>
                 </tr>
             </table>
@@ -53,9 +61,17 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Sun",
-        components: {},
+        methods: {
+            ...mapActions(["getGeolocationData"]),
+        },
+        computed:
+            mapGetters(["allGeolocationData"]),
+        created() {
+            this.getGeolocationData();
+        }
     }
 </script>
 
