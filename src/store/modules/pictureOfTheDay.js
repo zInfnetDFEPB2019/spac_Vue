@@ -13,7 +13,6 @@ const actions = {
             "https://api.nasa.gov/planetary/apod?api_key=5ZuQWT0HluYL1cXTkwZTSuGAg21iQ2XqnwzgSX4Q"
         ).then((response) => {
             commit('getPictures', response.data);
-            console.log(response.data);
         });
     },
 };

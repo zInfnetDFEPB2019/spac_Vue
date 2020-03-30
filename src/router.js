@@ -9,6 +9,7 @@ import LocalInformation from "@/components/Earth/LocalInformation";
 import ISS from "@/components/ISS/ISS";
 import c1 from "@/components/c1";
 import PictureOfTheDay from "@/components/Space/PictureOfTheDay";
+import MarsPhotos from "@/components/MarsPhotos/MarsPhotos";
 
 Vue.use(VueRouter);
 
@@ -44,6 +45,11 @@ export default new VueRouter({
             path:'/marsweather',
             name:'marsWeather',
             component: MarsWeather
+        },
+        {
+            path:'/marsphotos',
+            name:'marsPhotos',
+            component: MarsPhotos
         },
         {
             path:'/localinformation',

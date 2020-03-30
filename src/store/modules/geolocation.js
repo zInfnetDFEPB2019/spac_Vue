@@ -24,7 +24,6 @@ const actions = {
                  "https://api.ipgeolocation.io/astronomy?apiKey=a5aceb4342624748a36648d2272db916&lat=" + String(gps.latitude) +
                  "&long=" + String(gps.longitude))
                  .then((response) => {commit('getGeolocationData', response.data);
-                     console.log(response);
                  })
          }
          function error(err) {

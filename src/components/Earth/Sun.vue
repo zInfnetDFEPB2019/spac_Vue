@@ -10,7 +10,7 @@
         </div>
 
         <div>
-            <table align="center">
+            <table align="center" class="borderTable" style="margin-top: 15px">
                 <tr>
                     <td>
                         <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sunrise.png"

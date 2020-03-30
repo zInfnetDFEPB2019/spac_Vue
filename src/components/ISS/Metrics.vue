@@ -9,8 +9,8 @@
             </b-row>
         </div>
 
-        <div>
-            <table align="center">
+        <div >
+            <table align="center" class="borderTable">
                 <tr>
                     <td>
                         <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_altitude.png"

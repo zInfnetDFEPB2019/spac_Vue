@@ -10,7 +10,7 @@
         </div>
 
         <div>
-            <table align="center">
+            <table align="center" class="borderTable">
                 <tr>
                     <td>
                         <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/lat.png"

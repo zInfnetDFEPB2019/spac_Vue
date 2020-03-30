@@ -8,7 +8,7 @@
         </b-row>
         </div>
 
-        <div class="container" id="divContainerTableMarsWeatherTemperature">
+        <div class="container borderTable" id="divContainerTableMarsWeatherTemperature">
             <b-table sticky-header=true id="tableMarsWeatherTemperature" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
             </b-table>
         </div>

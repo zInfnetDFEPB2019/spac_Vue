@@ -10,7 +10,7 @@
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/pictureoftheday">Picture of the day</router-link></b-dropdown-item>
             <b-dropdown-header class="dropdown-header">MARS</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/marsweather">Mars Weather</router-link></b-dropdown-item>
-            <b-dropdown-item class="textRouterLinkHeader">Photos</b-dropdown-item>
+            <b-dropdown-item class="textRouterLinkHeader"><router-link to="/marsphotos">Photos</router-link></b-dropdown-item>
             <b-dropdown-header class="dropdown-header">EARTH</b-dropdown-header>
             <b-dropdown-item class="textRouterLinkHeader">Overview</b-dropdown-item>
             <b-dropdown-item class="textRouterLinkHeader"><router-link to="/localinformation">Local Information</router-link></b-dropdown-item>
