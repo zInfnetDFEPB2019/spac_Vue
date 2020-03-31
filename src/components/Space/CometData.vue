@@ -2,16 +2,17 @@
     <div>
         <div>
             <b-row>
-                <b-row class="contentDivSpaceCometInfoCometData">
+                <b-row class="contentDivSpaceCometInfoCometData" >
                     <b-img class="imageDivSpaceCometInfoCometData" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_info.png"
                            height="50" width="50" alt="comet icon"></b-img>
-                    <p class="titleDivSpaceCometInfoCometData">Comet <sup>3922358</sup></p>
+                    <p class="titleDivSpaceCometInfoCometData">Comet <sup>{{ this.cometId }}</sup></p>
+                    <b-button variant="dark" id="buttonEditCometData" size="sm"><b-icon-pencil></b-icon-pencil></b-button>
                 </b-row>
             </b-row>
         </div>
 
         <div>
-            <table align="center">
+            <table align="center" class="borderTable">
                 <tr>
                     <td>
                         <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/absolute_magnitude.png"
@@ -37,23 +38,23 @@
                 <tr>
                     <td>
                         <p>Absolute Magnitude</p>
-                        <p>18.8</p>
+                        <p>{{ allCometDetails._absoluteMagnitude }}</p>
                     </td>
                     <td>
                         <p>Designation</p>
-                        <p>2019 XG3</p>
+                        <p>{{ allCometDetails._name }}</p>
                     </td>
                     <td>
-                        <p>Estimated Diameter</p>
-                        <p>1.03</p>
+                        <p>Estimated Diameter <sup>(m)</sup></p>
+                        <p>{{ allCometDetails._estimatedDiameterAvg }}</p>
                     </td>
                     <td>
                         <p>Potentially Hazard</p>
-                        <p>SAFE</p>
+                        <p>{{ allCometDetails._potentiallyHazardous }}</p>
                     </td>
                     <td>
                         <p>Sentry Object</p>
-                        <p>SAFE</p>
+                        <p>{{ allCometDetails._sentryObject }}</p>
                     </td>
                 </tr>
             </table>
@@ -62,9 +63,26 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "CometData",
+        props: {
+            cometId: String
+        },
         components: {},
+        methods: {
+            ...mapActions(["getCometDetails"]),
+            created(){
+                this.getCometDetails("3511833");
+            },
+        },
+        computed:
+            mapGetters(["allCometDetails"]),
+        data() {
+            return {
+            }
+        },
+
     }
 </script>
 
@@ -94,4 +112,23 @@
         margin-top: 12px;
         align-self: self-end;
     }
+
+    #buttonEditCometData {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        margin-left: 830px;
+    }
+
+    #buttonEditCometData:hover {
+        color:#343A40;
+        background-color: #FFC107;
+    }
+
+    .bi-pencil {
+        margin-left: 2px !important;
+    }
+
 </style>

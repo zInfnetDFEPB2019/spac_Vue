@@ -7,13 +7,14 @@
                     <b-row class="contentTitle">
                         <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_data.png"
                                height="75" width="75" alt="comet info icon section"></b-img>
-                        <p class="titleSection">COMET INFO</p>
+                        <p class="titleSection">COMET DETAILS</p>
                     </b-row>
+                    <button @click="mostraRota()">Rota</button>
                 </div>
 
                 <div>
-                    <CometData/>
-                    <CloseApproach/>
+                    <CometData :comet-id="this.$route.params.id"/>
+                    <CloseApproach :comet-id="this.$route.params.id"/>
                 </div>
             </section>
             <Footer/>
@@ -22,13 +23,30 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from "vuex";
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
     import CometData from "@/components/Space/CometData";
     import CloseApproach from "@/components/Space/CloseApproach";
     export default {
-        name: "CometInfo",
+        name: "cometDetail",
         components: {CloseApproach, CometData, Footer, Header},
+        methods:{
+            ...mapActions(["getCometDetails"]),
+            created(){
+                this.getCometDetails(this.$route.params.id);
+            },
+            mostraRota(){
+              console.log(this.getCometDetails(this.$route.params.id));
+            }
+        },
+        computed:
+            mapGetters(["allCometDetails"]),
+        data() {
+            return {
+                id : this.$route.params.id
+            }
+        }
     }
 </script>
 

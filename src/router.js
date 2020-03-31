@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/components/Home";
 import CometSearch from "@/components/Space/CometSearch";
-import CometInfo from "@/components/Space/CometInfo";
+import CometDetail from "@/components/Space/CometDetail";
+import EditComet from "@/components/Space/EditComet";
 import SpaceWeather from "@/components/Space/SpaceWeather";
 import MarsWeather from "@/components/MarsWeather/MarsWeather";
 import LocalInformation from "@/components/Earth/LocalInformation";
@@ -10,6 +11,8 @@ import ISS from "@/components/ISS/ISS";
 import c1 from "@/components/c1";
 import PictureOfTheDay from "@/components/Space/PictureOfTheDay";
 import MarsPhotos from "@/components/MarsPhotos/MarsPhotos";
+import CloseApproach from "@/components/Space/CloseApproach";
+import CometData from "@/components/Space/CometData";
 
 Vue.use(VueRouter);
 
@@ -24,12 +27,27 @@ export default new VueRouter({
         {
             path:'/cometsearch',
             name:'cometSearch',
-            component: CometSearch
+            component: CometSearch,
         },
         {
-            path:'/cometinfo',
-            name:'cometInfo',
-            component: CometInfo
+            path:'/cometsearch/:id',
+            name:'cometDetail',
+            component: CometDetail,
+            children: [{
+                path:'edit',
+                name:'edit-comet',
+                component:EditComet
+            }]
+        },
+        {
+            path:'/ca',
+            name:'ca',
+            component: CloseApproach
+        },
+        {
+            path:'/cd',
+            name:'cd',
+            component: CometData
         },
         {
             path:'/spaceweather',

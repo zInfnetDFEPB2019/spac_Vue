@@ -2,7 +2,7 @@
     <div>
         <div id="divContentHolderCometSearch">
             <Header/>
-            <section>
+            <section id="sectionCometSearch">
                 <div>
                     <b-row class="contentTitle">
                         <b-img class="imageSection" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_search.png"
@@ -49,7 +49,18 @@
 
                 <div class="container" id="divContainerTableCometSearch">
                     <div class="borderTable">
-                        <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="allComets" :fields="fields" dark=true responsive=true></b-table>
+                        <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="allComets" :fields="fields" dark=true responsive=true>
+                            <template v-slot:cell(actions)="row">
+
+                                <router-link :to="{ name: 'cometDetail', params: { id: row.item._id } }">
+                                    <b-button variant="outline-dark" id="buttonInfo" size="sm" class="mr-1">
+                                        <b-icon-box-arrow-right></b-icon-box-arrow-right>
+                                    </b-button>
+                                </router-link>
+
+                                <b-button variant="outline-dark" id="buttonDelete" size="sm" @click="deleteComet(row.item._id)" class="mr-1"><b-icon-trash></b-icon-trash></b-button>
+                            </template>
+                        </b-table>
                     </div>
                 </div>
 
@@ -67,13 +78,13 @@
         name: "CometSearch",
         components: {Footer, Header},
         methods: {
-            ...mapActions(["getComets"]),
+            ...mapActions(["getComets","deleteComet"]),
             searchComets(){
                 let dates = Array();
                 dates.push(this.cometDateStart);
                 dates.push(this.cometDateEnd);
                 this.getComets(dates);
-            }
+            },
         },
         computed:
             mapGetters(["allComets"]),
@@ -82,10 +93,11 @@
                 cometDateStart:"",
                 cometDateEnd:"",
                 fields: [
-                    {key:'id',sortable: true},
+                    {key:'id',sortable: true,label:'ID'},
                     {key:'name',sortable: true},
                     {key:'absoluteMagnitude',sortable: true},
                     {key:'closeApproach',sortable: true},
+                    { key: 'actions', label: 'Actions'}
                 ],
             }
         },
@@ -94,6 +106,14 @@
 
 <style>
 
+    .btn .b-icon.bi, .nav-link .b-icon.bi, .dropdown-toggle .b-icon.bi, .dropdown-item .b-icon.bi, .input-group-text .b-icon.bi {
+        font-size: 132% !important;
+    }
+
+    #sectionCometSearch {
+        margin-bottom: 100px !important
+    }
+
     .bg-b-table-default {
         color: #E2E2E2 !important;
     }
@@ -101,6 +121,25 @@
     .borderTable {
         border: 1px solid #343a40;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    #buttonInfo:hover {
+        color:#E2E2E2;
+        background-color: #17A2B8;
+        border-color: #17A2B8;
+
+    }
+
+    #buttonEdit:hover {
+        color:#343A40;
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    #buttonDelete:hover {
+        color:#E2E2E2;
+        background-color: #DC3545;
+        border-color: #DC3545;
     }
 
     .imageSection {
@@ -314,4 +353,30 @@
     #input_secondDate__dialog_ {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
+
+    .btn-dark {
+        color: #E2E2E2;
+        background-color: #181818;
+        border-color: #353535;
+    }
+
+    .btn-dark:hover {
+        color: #E2E2E2;
+        background-color: #353535;
+        border-color: #353535;
+    }
+
+    .btn-outline-dark {
+        color: #E2E2E2;
+        /*background-color: #181818;*/
+        border-color: #353535;
+    }
+
+    .btn-outline-dark:hover {
+        color: #E2E2E2;
+        background-color: #353535;
+        border-color: #353535;
+    }
+
+
 </style>

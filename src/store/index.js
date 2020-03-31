@@ -7,12 +7,14 @@ import pictureOfTheDay from "@/store/modules/pictureOfTheDay";
 import marsWeather from "@/store/modules/marsWeather";
 import marsPhotos from "@/store/modules/marsPhotos";
 import cometSearch from "@/store/modules/cometSearch";
+import cometDetail from "@/store/modules/cometDetail";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
         cometSearch,
+        cometDetail,
         iss,
         issData,
         marsWeather,
