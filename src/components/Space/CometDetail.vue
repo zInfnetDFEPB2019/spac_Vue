@@ -9,12 +9,12 @@
                                height="75" width="75" alt="comet info icon section"></b-img>
                         <p class="titleSection">COMET DETAILS</p>
                     </b-row>
-                    <button @click="mostraRota()">Rota</button>
+                    <button id="buttonTrigger" @click="trigger()">Rota</button>
                 </div>
 
                 <div>
-                    <CometData :comet-id="this.$route.params.id"/>
-                    <CloseApproach :comet-id="this.$route.params.id"/>
+                    <CometData :comet-id="this.$route.params._id"/>
+                    <CloseApproach :comet-id="this.$route.params._id"/>
                 </div>
             </section>
             <Footer/>
@@ -33,15 +33,15 @@
         components: {CloseApproach, CometData, Footer, Header},
         methods:{
             ...mapActions(["getCometDetails"]),
-            created(){
+            trigger(){
+              this.getCometDetails(this.$route.params.id);
+            },
+            created() {
                 this.getCometDetails(this.$route.params.id);
             },
-            mostraRota(){
-              console.log(this.getCometDetails(this.$route.params.id));
-            }
         },
         computed:
-            mapGetters(["allCometDetails"]),
+            mapGetters(["allCometDetails","detailedCometById"]),
         data() {
             return {
                 id : this.$route.params.id
@@ -51,6 +51,10 @@
 </script>
 
 <style>
+
+    /*#buttonTrigger {*/
+    /*    display: none;*/
+    /*}*/
 
     #sectionCometInfo {
         margin-bottom: 100px !important;

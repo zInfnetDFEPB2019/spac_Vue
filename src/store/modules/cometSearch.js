@@ -78,12 +78,26 @@ const actions = {
         commit("deleteComet", id);
     },
 
+    updateComet({commit},updComet){
+        commit("updateComet",updComet);
+    },
+
+    addComet({commit} , new_comet){
+        commit('addComet', new_comet);
+    },
 
 };
 const mutations = {
     getComets: (state, comets) => (state.comets = comets),
     deleteComet: (state, id) =>
         (state.comets = state.comets.filter(c => c._id !== id)),
+    updateComet: (state, updComet) => {
+        const index = state.comets.findIndex(c => c._id === updComet.id);
+        if (index !== -1) {
+            state.comets.splice(index, 1, updComet);
+        }
+    },
+    addComet: (state, new_comet) => state.comets.push(new_comet),
 };
 
 export default {

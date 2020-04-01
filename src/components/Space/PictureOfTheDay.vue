@@ -83,7 +83,7 @@
         text-align: left !important;
         font-size: 30px;
         margin-left: 25px;
-        margin-top: -5px !important;
+        margin-top: 15px !important;
         align-self: self-end;
     }
 

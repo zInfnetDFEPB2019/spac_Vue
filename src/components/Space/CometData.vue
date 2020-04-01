@@ -6,7 +6,12 @@
                     <b-img class="imageDivSpaceCometInfoCometData" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_info.png"
                            height="50" width="50" alt="comet icon"></b-img>
                     <p class="titleDivSpaceCometInfoCometData">Comet <sup>{{ this.cometId }}</sup></p>
-                    <b-button variant="dark" id="buttonEditCometData" size="sm"><b-icon-pencil></b-icon-pencil></b-button>
+                    <router-link :to="{ name: 'editComet', params: { id: this.$route.params.id } }">
+                        <b-button variant="dark" id="buttonEditCometData" size="sm"><b-icon-pencil></b-icon-pencil></b-button>
+                    </router-link>
+                    <router-link :to="{ name: 'newComet'}">
+                        <b-button variant="dark" id="buttonNewCometData" size="sm"><b-icon-plus></b-icon-plus></b-button>
+                    </router-link>
                 </b-row>
             </b-row>
         </div>
@@ -38,23 +43,23 @@
                 <tr>
                     <td>
                         <p>Absolute Magnitude</p>
-                        <p>{{ allCometDetails._absoluteMagnitude }}</p>
+                        <p>{{ allCometDetails[0]._absoluteMagnitude }}</p>
                     </td>
                     <td>
                         <p>Designation</p>
-                        <p>{{ allCometDetails._name }}</p>
+                        <p>{{ allCometDetails[0]._name }}</p>
                     </td>
                     <td>
                         <p>Estimated Diameter <sup>(m)</sup></p>
-                        <p>{{ allCometDetails._estimatedDiameterAvg }}</p>
+                        <p>{{ allCometDetails[0]._estimatedDiameterAvg }}</p>
                     </td>
                     <td>
                         <p>Potentially Hazard</p>
-                        <p>{{ allCometDetails._potentiallyHazardous }}</p>
+                        <p>{{ allCometDetails[0]._potentiallyHazardous }}</p>
                     </td>
                     <td>
                         <p>Sentry Object</p>
-                        <p>{{ allCometDetails._sentryObject }}</p>
+                        <p>{{ allCometDetails[0]._sentryObject }}</p>
                     </td>
                 </tr>
             </table>
@@ -72,14 +77,18 @@
         components: {},
         methods: {
             ...mapActions(["getCometDetails"]),
+            // editComet() {
+            //     this.$router.push({ name: 'edit-comet', params: { id: this.id } });
+            // },
             created(){
-                this.getCometDetails("3511833");
+                this.getCometDetails(this.cometId);
             },
         },
         computed:
             mapGetters(["allCometDetails"]),
         data() {
             return {
+                id : this.$route.params.id
             }
         },
 
@@ -127,8 +136,22 @@
         background-color: #FFC107;
     }
 
-    .bi-pencil {
+    .bi-pencil,.bi-plus {
         margin-left: 2px !important;
+    }
+
+    #buttonNewCometData {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-self: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    #buttonNewCometData:hover {
+        color:#E2E2E2;
+        background-color: #28A745;
     }
 
 </style>

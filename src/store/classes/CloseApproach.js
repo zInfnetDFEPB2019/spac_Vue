@@ -34,12 +34,6 @@ export default class CloseApproach {
         this._orbitingBody = value;
     }
 
-    static correctNullValue(String){
-        if (String === null || String === "null"){
-            return "Unknown"
-        }
-    }
-
     static getValidDate(response,dataPath,iterator){
         let
             fullDate = String(dataPath[iterator]["close_approach_date_full"]),
@@ -62,36 +56,7 @@ export default class CloseApproach {
             dataPath = (response)["close_approach_data"];
 
         for (let iterator = 0; iterator < dataPath.length; iterator++){
-            // let
-            //     closeApproachDate = () => {
-            //         let
-            //             fullDate = String(dataPath[iterator]["close_approach_date_full"]),
-            //             shortDate = String(dataPath[iterator]["close_approach_date"]);
-            //         if ((fullDate === null || fullDate === "null") && (shortDate !== null || shortDate !== "null")){
-            //             return shortDate;
-            //         }
-            //         else if ((fullDate === null || fullDate === "null") && (shortDate === null || shortDate === "null")){
-            //             return "Unknown"
-            //         }
-            //         else {
-            //             return fullDate;
-            //         }
-            //     },
             let
-                // closeApproachDate = (function() {
-                //     let
-                //         fullDate = String(dataPath[iterator]["close_approach_date_full"]),
-                //         shortDate = String(dataPath[iterator]["close_approach_date"]);
-                //     if ((fullDate === null || fullDate === "null") && (shortDate !== null || shortDate !== "null")){
-                //         return shortDate;
-                //     }
-                //     else if ((fullDate === null || fullDate === "null") && (shortDate === null || shortDate === "null")){
-                //         return "Unknown"
-                //     }
-                //     else {
-                //         return fullDate;
-                //     }
-                // })(),
                 closeApproachDate = String(CloseApproach.getValidDate(response,dataPath,iterator)),
                 relativeVelocity = String(Number((dataPath[iterator]["relative_velocity"]["kilometers_per_hour"])).toFixed(2)),
                 missDistance = String(Number((dataPath[iterator]["miss_distance"]["kilometers"])).toFixed(2)),

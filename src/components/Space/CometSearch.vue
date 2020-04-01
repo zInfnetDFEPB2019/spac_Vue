@@ -49,7 +49,7 @@
 
                 <div class="container" id="divContainerTableCometSearch">
                     <div class="borderTable">
-                        <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="allComets" :fields="fields" dark=true responsive=true>
+                        <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="allComets" :fields="fields" :dark="true" responsive=true>
                             <template v-slot:cell(actions)="row">
 
                                 <router-link :to="{ name: 'cometDetail', params: { id: row.item._id } }">
@@ -116,6 +116,10 @@
 
     .bg-b-table-default {
         color: #E2E2E2 !important;
+    }
+
+    .calendar-grid {
+        background-color: red !important;
     }
 
     .borderTable {
@@ -209,6 +213,11 @@
         margin-top: 50px;
     }
 
+    .b-calendar, .b-form-date-calendar, .d-inline-block * {
+        background-color: #181818;
+        color: #E2E2E2;
+    }
+
     #__BVID__214__calendar-grid_ {
         background-color: #181818;
         color: #E2E2E2;
@@ -227,31 +236,37 @@
     /*    border: none !important;*/
     /*}*/
 
-    #__BVID__43__calendar-value_ {
-        border: none !important;
-    }
 
-    #__BVID__43__calendar-grid_ {
-        background-color: #181818 !important;
-        color: #E2E2E2 !important;
-    }
 
-    #__BVID__43__calendar-grid-caption_ {
-        color: #E2E2E2 !important;
-    }
+    /*#__BVID__43__calendar-value_ {*/
+    /*    border: none !important;*/
+    /*}*/
 
-    #__BVID__46__calendar-value_ {
-        border: none !important;
-    }
+    /*#__BVID__43__calendar-grid_ {*/
+    /*    background-color: #181818 !important;*/
+    /*    color: #E2E2E2 !important;*/
+    /*}*/
 
-    #__BVID__46__calendar-grid_ {
-        background-color: #181818 !important;
-        color: #E2E2E2 !important;
-    }
+    /*#__BVID__43__calendar-grid-caption_ {*/
+    /*    color: #E2E2E2 !important;*/
+    /*}*/
 
-    #__BVID__46__calendar-grid-caption_ {
-        color: #E2E2E2 !important;
-    }
+    /*#__BVID__46__calendar-value_ {*/
+    /*    border: none !important;*/
+    /*}*/
+
+    /*#__BVID__46__calendar-grid_ {*/
+    /*    background-color: #181818 !important;*/
+    /*    color: #E2E2E2 !important;*/
+    /*}*/
+
+    /*#__BVID__46__calendar-grid-caption_ {*/
+    /*    color: #E2E2E2 !important;*/
+    /*}*/
+
+
+
+
 
     /*#__BVID__42__calendar-grid_ {*/
     /*    background-color: #181818 !important;*/
@@ -288,7 +303,7 @@
 
     .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
         color: #E2E2E2 !important;
-        background-color: #616161;
+        background-color: #353535;
     }
 
     .btn-outline-light:hover {

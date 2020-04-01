@@ -13,6 +13,7 @@ import PictureOfTheDay from "@/components/Space/PictureOfTheDay";
 import MarsPhotos from "@/components/MarsPhotos/MarsPhotos";
 import CloseApproach from "@/components/Space/CloseApproach";
 import CometData from "@/components/Space/CometData";
+import NewComet from "@/components/Space/NewComet";
 
 Vue.use(VueRouter);
 
@@ -30,14 +31,20 @@ export default new VueRouter({
             component: CometSearch,
         },
         {
-            path:'/cometsearch/:id',
+            path:'/cometsearch/cometdetail/:id',
             name:'cometDetail',
             component: CometDetail,
-            children: [{
-                path:'edit',
-                name:'edit-comet',
-                component:EditComet
-            }]
+
+        },
+        {
+            path:'/newcomet',
+            name:'newComet',
+            component: NewComet,
+        },
+        {
+            path:'/cometsearch/cometdetail/edit/:id',
+            name:'editComet',
+            component: EditComet,
         },
         {
             path:'/ca',

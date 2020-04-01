@@ -10,7 +10,7 @@
 
         <div class="container" id="divContainerTableSpaceCometInfoCloseApproach">
             <div class="borderTable">
-                <b-table sticky-header=true id="tableSpaceCometInfoCloseApproach" borderless hover :items="allCometDetails._closeApproach" :fields="fields" dark="true" responsive=true></b-table>
+                <b-table sticky-header=true id="tableSpaceCometInfoCloseApproach" borderless hover :items="allCometDetails[0]._closeApproach" :fields="fields" :dark="true" responsive=true></b-table>
             </div>
         </div>
     </div>
@@ -31,7 +31,6 @@
             mapGetters(["allCometDetails"]),
         data() {
             return {
-                kmh:"'<sup>km/h</sup>'",
                 fields: [
                     {key:'_closeApproachDate',sortable: true,label:'Close Approach Date'},
                     {key:'_relativeVelocity',sortable: true,label:'Relative Velocity km/h'},

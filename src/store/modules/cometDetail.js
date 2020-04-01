@@ -1,5 +1,4 @@
 import axios from "axios";
-// import externalFunctions from "../../external_functions";
 import CometDetail from '../classes/CometDetail';
 import CloseApproach from '../classes/CloseApproach';
 
@@ -8,6 +7,7 @@ const state = {
 };
 const getters = {
     allCometDetails: state => state.detailedComet,
+    detailedCometById: (state) => (id) => (state.detailedComet.filter(dc => dc._id == id))[0],
 };
 
 const actions = {
@@ -38,16 +38,31 @@ const actions = {
                     sentryObject,
                     closeApproach
                 );
-                return comet;
+
+                let arrayDetails = Array();
+                arrayDetails.push(comet);
+
+                return arrayDetails;
+                // return comet;
             }
         commit('getCometDetails',createCometObject());
         });
+    },
+
+    updateCometDetails({commit},updComet){
+        commit("updateCometDetails",updComet);
     },
 
 };
 
 const mutations = {
     getCometDetails: (state, detailedComet) => (state.detailedComet = detailedComet),
+    updateCometDetails: (state, updComet) => {
+        const index = state.detailedComet.findIndex(dc => dc._id === updComet._id);
+        if (index !== -1) {
+            state.detailedComet.splice(index, 1, updComet);
+        }
+    }
 };
 
 export default {
