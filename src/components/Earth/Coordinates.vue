@@ -23,9 +23,11 @@
                 </tr>
                 <tr>
                     <td>
+                        <p>Latitude <sup>(Deg)</sup></p>
                         <p>{{ allGeolocationData.location.latitude.toFixed(3) }}</p>
                     </td>
                     <td>
+                        <p>Longitude <sup>(Deg)</sup></p>
                         <p>{{ allGeolocationData.location.longitude.toFixed(3) }}</p>
                     </td>
                 </tr>

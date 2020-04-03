@@ -14,9 +14,7 @@
                 <tr >
                     <td v-for="member in allMembers"
                         :key="member.name">
-<!--                        <p :href="`https://google.com/search?q=${member.name}`">{{ member.name }}</p>-->
-<!--                        <router-link :to="`https://google.com/search?q=${member.name}`"><p>{{ member.name }}</p></router-link>-->
-                        <a :href="`https://google.com/search?q=${member.name}`">{{ member.name }}</a>
+                        <a id="crewMembersLink" :href="`https://google.com/search?q=${member.name}`">{{ member.name }}</a>
                     </td>
                 </tr>
             </table>
@@ -40,6 +38,11 @@
 </script>
 
 <style scoped>
+
+    #crewMembersLink {
+        color: #E2E2E2;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;

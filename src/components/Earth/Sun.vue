@@ -43,7 +43,7 @@
                         <p>{{ allGeolocationData.sunset }}</p>
                     </td>
                     <td>
-                        <p>Day Length</p>
+                        <p>Day Length <sup>(h:min)</sup></p>
                         <p>{{ allGeolocationData.day_length }}</p>
                     </td>
                     <td>
@@ -51,8 +51,8 @@
                         <p>{{ allGeolocationData.solar_noon }}</p>
                     </td>
                     <td>
-                        <p>Sun Distance</p>
-                        <p>{{ allGeolocationData.sun_distance.toFixed(2) }} km</p>
+                        <p>Sun Distance <sup>(km)</sup></p>
+                        <p>{{ allGeolocationData.sun_distance.toFixed(2) }}</p>
                     </td>
                 </tr>
             </table>

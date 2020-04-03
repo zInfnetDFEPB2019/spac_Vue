@@ -94,7 +94,6 @@
         components: {Footer, Header},
         created() {
             this.comet_add = this.detailedCometById(this.id);
-            console.log(this.$route.params.id,"\n",this.detailedCometById(this.id));
         },
         methods: {
             ...mapActions(["updateCometDetails"]),

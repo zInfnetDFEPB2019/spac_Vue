@@ -70,7 +70,6 @@ export default class CloseApproach {
             );
             approachDatesComplete.push(cometApproach);
         }
-        console.log(approachDatesComplete);
         return approachDatesComplete;
     }
 

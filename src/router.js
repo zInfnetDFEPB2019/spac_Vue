@@ -4,16 +4,15 @@ import Home from "@/components/Home";
 import CometSearch from "@/components/Space/CometSearch";
 import CometDetail from "@/components/Space/CometDetail";
 import EditComet from "@/components/Space/EditComet";
-import SpaceWeather from "@/components/Space/SpaceWeather";
 import MarsWeather from "@/components/MarsWeather/MarsWeather";
 import LocalInformation from "@/components/Earth/LocalInformation";
 import ISS from "@/components/ISS/ISS";
-import c1 from "@/components/c1";
 import PictureOfTheDay from "@/components/Space/PictureOfTheDay";
 import MarsPhotos from "@/components/MarsPhotos/MarsPhotos";
-import CloseApproach from "@/components/Space/CloseApproach";
-import CometData from "@/components/Space/CometData";
 import NewComet from "@/components/Space/NewComet";
+import MagneticField from "@/components/Earth/MagneticField";
+import Overview from "@/components/Earth/Overview";
+import FeltOnEarth from "@/components/Earth/FeltOnEarth";
 
 Vue.use(VueRouter);
 
@@ -47,21 +46,6 @@ export default new VueRouter({
             component: EditComet,
         },
         {
-            path:'/ca',
-            name:'ca',
-            component: CloseApproach
-        },
-        {
-            path:'/cd',
-            name:'cd',
-            component: CometData
-        },
-        {
-            path:'/spaceweather',
-            name:'spaceWeather',
-            component: SpaceWeather
-        },
-        {
             path:'/pictureoftheday',
             name:'pictureOfTheDay',
             component: PictureOfTheDay
@@ -77,19 +61,29 @@ export default new VueRouter({
             component: MarsPhotos
         },
         {
+            path:'/overview',
+            name:'overview',
+            component: Overview
+        },
+        {
             path:'/localinformation',
             name:'localInformation',
             component: LocalInformation
         },
         {
+            path:'/magneticfield',
+            name:'magneticField',
+            component: MagneticField
+        },
+        {
+            path:'/feltonearth',
+            name:'feltOnEarth',
+            component: FeltOnEarth
+        },
+        {
             path:'/iss',
             name:'ISS',
             component: ISS
-        },
-        {
-            path:'/c1',
-            name:'c1',
-            component: c1
         },
     ]
 });

@@ -82,6 +82,6 @@
     }
 
     #sectionLocalInformation {
-        margin-bottom: 25px !important;
+        margin-bottom: 100px !important;
     }
 </style>

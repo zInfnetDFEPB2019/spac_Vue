@@ -9,7 +9,7 @@
         </div>
 
         <div class="container borderTable" id="divContainerTableMarsWeatherTemperature">
-            <b-table sticky-header=true id="tableMarsWeatherTemperature" borderless hover :items="items" :fields="fields" dark="true" responsive=true>
+            <b-table sticky-header=true id="tableMarsWeatherTemperature" borderless hover :items="allMarsWeather[0]" :fields="fields" :dark="true" responsive=true>
             </b-table>
         </div>
     </div>
@@ -31,22 +31,13 @@
         data() {
             return {
                 fields: [
-                    {key:'Date',sortable: true},
-                    {key:'Sol',sortable: true},
-                    {key:'Average',sortable: true},
-                    {key:'Maximum',sortable: true},
-                    {key:'Minimum',sortable: true},
-                    {key:'Samples',sortable: true},
+                    {key:'dateEarth',sortable: true,label:'Date Earth'},
+                    {key:'sol',sortable: true,label:'Sol'},
+                    {key:'averageTemp',sortable: true,label:'Average'},
+                    {key:'maximumTemp',sortable: true,label:'Maximum'},
+                    {key:'minimumTemp',sortable: true,label:'Minimum'},
+                    {key:'samplesTemp',sortable: true,label:'Samples'},
                 ],
-                items: [
-                    {Date:'03/03/2020',Sol:'451',Average:'-62.174',Maximum:'-10.329',Minimum:'-93.563',Samples:'274075'},
-                    {Date:'04/03/2020',Sol:'452',Average:'-58.657',Maximum:'-9.202',Minimum:'-94.25',Samples:'305838'},
-                    {Date:'05/03/2020',Sol:'453',Average:'-59.785',Maximum:'-10.765',Minimum:'-95.073',Samples:'259908'},
-                    {Date:'06/03/2020',Sol:'454',Average:'-61.741',Maximum:'-12.515',Minimum:'-95.909',Samples:'180534'},
-                    {Date:'07/03/2020',Sol:'455',Average:'-63.987',Maximum:'-12.801',Minimum:'-95.437',Samples:'300454'},
-                    {Date:'08/03/2020',Sol:'456',Average:'-61.451',Maximum:'-9.595',Minimum:'-94.59',Samples:'177554'},
-                    {Date:'09/03/2020',Sol:'457',Average:'-59.117',Maximum:'-9.105',Minimum:'-95.712',Samples:'310592'}
-                ]
             }
         },
     }

@@ -12,26 +12,77 @@
                     </b-row>
                 </div>
 
+
+                <div>
+                    <b-row class="contentDivMarsWeather">
+                        <b-img class="imageDivMarsWeather" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_photos.png"
+                               height="50" width="50" alt="mars pressure icon"></b-img>
+                        <p class="titleDivMarsWeather">Latest forecast</p>
+                    </b-row>
+                </div>
+
+                <div>
+                    <table align="center" class="borderTable" style="margin-top: 15px">
+                        <tr>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/earth_section_logo.png"
+                                       height="50" width="50" alt="earth icon"></b-img>
+                            </td>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_section_logo.png"
+                                       height="50" width="50" alt="mars icon"></b-img>
+                            </td>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/average_temperature.png"
+                                       height="50" width="50" alt="average temperature icon"></b-img>
+                            </td>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/maximum_temperature.png"
+                                       height="50" width="50" alt="maximum temperature icon"></b-img>
+                            </td>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/minimum_temperature.png"
+                                       height="50" width="50" alt="minimum temperature icon"></b-img>
+                            </td>
+                            <td>
+                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_season.png"
+                                       height="50" width="50" alt="mars season icon"></b-img>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Date Earth</p>
+                                <p>{{ allMarsWeather[0][6]._dateEarth }}</p>
+                            </td>
+                            <td>
+                                <p>Sol</p>
+                                <p>{{ allMarsWeather[0][6]._sol }}</p>
+                            </td>
+                            <td>
+                                <p>Average <sup>(°C)</sup></p>
+                                <p>{{ allMarsWeather[0][6]._averageTemp }}</p>
+                            </td>
+                            <td>
+                                <p>Maximum <sup>(°C)</sup></p>
+                                <p>{{ allMarsWeather[0][6]._maximumTemp }}</p>
+                            </td>
+                            <td>
+                                <p>Minimum <sup>(°C)</sup></p>
+                                <p>{{ allMarsWeather[0][6]._minimumTemp }}</p>
+                            </td>
+                            <td>
+                                <p>Season</p>
+                                <p>{{ allMarsWeather[3] }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
                 <MarsTemperature/>
                 <MarsWind/>
                 <MarsPressure/>
 
-<!--                <div>-->
-<!--                    <b-row class="contentDivs">-->
-<!--                        <b-img class="imageDivs" src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_temperature.png"-->
-<!--                               height="50" width="50" alt="mars temperature icon"></b-img>-->
-<!--                        <p class="titleDivs">Temperature</p>-->
-<!--                    </b-row>-->
-<!--                </div>-->
-
-<!--                <div class="container" id="divContainerTableMarsWeather">-->
-<!--                    <b-table sticky-header=true id="tableMarsWeather" borderless hover :items="items" :fields="fields" dark="true" responsive=true>-->
-<!--                    </b-table>-->
-<!--                </div>-->
-
             </section>
-
-
             <Footer/>
         </div>
     </div>
@@ -43,29 +94,21 @@
     import MarsTemperature from "@/components/MarsWeather/MarsTemperature";
     import MarsWind from "@/components/MarsWeather/MarsWind";
     import MarsPressure from "@/components/MarsWeather/MarsPressure";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "MarsWeather",
         components: {MarsPressure, MarsWind, MarsTemperature, Footer, Header},
         data() {
             return {
-                fields: [
-                    {key:'Date',sortable: true},
-                    {key:'Sol',sortable: true},
-                    {key:'Average',sortable: true},
-                    {key:'Maximum',sortable: true},
-                    {key:'Minimum',sortable: true},
-                    {key:'Samples',sortable: true},
-                ],
-                items: [
-                    {Date:'03/03/2020',Sol:'451',Average:'-62.174',Maximum:'-10.329',Minimum:'-93.563',Samples:'274075'},
-                    {Date:'04/03/2020',Sol:'452',Average:'-58.657',Maximum:'-9.202',Minimum:'-94.25',Samples:'305838'},
-                    {Date:'05/03/2020',Sol:'453',Average:'-59.785',Maximum:'-10.765',Minimum:'-95.073',Samples:'259908'},
-                    {Date:'06/03/2020',Sol:'454',Average:'-61.741',Maximum:'-12.515',Minimum:'-95.909',Samples:'180534'},
-                    {Date:'07/03/2020',Sol:'455',Average:'-63.987',Maximum:'-12.801',Minimum:'-95.437',Samples:'300454'},
-                    {Date:'08/03/2020',Sol:'456',Average:'-61.451',Maximum:'-9.595',Minimum:'-94.59',Samples:'177554'},
-                    {Date:'09/03/2020',Sol:'457',Average:'-59.117',Maximum:'-9.105',Minimum:'-95.712',Samples:'310592'}
-                ]
             }
+        },
+        methods: {
+            ...mapActions(["getMarsWeather"]),
+        },
+        computed:
+            mapGetters(["allMarsWeather"]),
+        created() {
+            this.getMarsWeather();
         },
     }
 </script>
@@ -105,6 +148,34 @@
     #tableMarsWeatherTemperature {
         color: #E2E2E2;
         background-color: #181818;
+    }
+
+    .bg-b-table-default {
+        background-color: #181818 !important;
+    }
+
+    .imageDivMarsWeather {
+        margin-left: 100px;
+    }
+
+    .titleDivMarsWeather {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: left !important;
+        font-size: 20px;
+        margin-left: 20px;
+        margin-top: 10px;
+        align-self: self-end;
+    }
+
+    .contentDivMarsWeather {
+        margin-top: 50px !important;
+        margin-left: 45px !important;
+    }
+
+    #tableMarsWeatherPressure {
+        color: #E2E2E2 !important;
+        background-color: #181818 !important;
     }
 
     .bg-b-table-default {

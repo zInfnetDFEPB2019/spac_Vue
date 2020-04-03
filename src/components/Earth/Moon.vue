@@ -35,8 +35,8 @@
                         <p>{{ allGeolocationData.moonset }}</p>
                     </td>
                     <td>
-                        <p>Moon Distance</p>
-                        <p>{{ allGeolocationData.moon_distance.toFixed(2) }} km</p>
+                        <p>Moon Distance <sup>(km)</sup></p>
+                        <p>{{ allGeolocationData.moon_distance.toFixed(2) }}</p>
                     </td>
                 </tr>
             </table>
