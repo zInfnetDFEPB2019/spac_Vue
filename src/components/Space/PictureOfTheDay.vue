@@ -23,7 +23,7 @@
                         <b-card-text id="cardText">
                             {{ allPictures.explanation }}
                         </b-card-text>
-                        <p id="pCopyright"><small>&copy;&nbsp;{{ allPictures.copyright }}</small></p>
+                        <p id="pCopyright"><small>&copy; {{ allPictures.copyright }}</small></p>
                     </b-card>
                 </div>
             </section>

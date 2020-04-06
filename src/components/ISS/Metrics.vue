@@ -10,33 +10,36 @@
         </div>
 
         <div >
-            <table align="center" class="borderTable">
+            <table class="borderTable metricsTable">
                 <tr>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_altitude.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issAltitude }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_altitude.png"
                                height="50" width="50" alt="iss altitude icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_velocity.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issVelocity }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_velocity.png"
                                height="50" width="50" alt="iss velocity icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_visibility.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issVisibility }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_visibility.png"
                                height="50" width="50" alt="iss visibility icon"></b-img>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>Altitude</p>
-                        <p> {{ allISSData.altitude.toFixed(2) }} km</p>
+                        <p>Altitude <sup>(km)</sup></p>
+                        <p class="pCenterAlignment">{{ allISSData.altitude.toFixed(2) }}</p>
                     </td>
                     <td>
-                        <p>Velocity</p>
-                        <p> {{ allISSData.velocity.toFixed(2) }} km/h</p>
+                        <p>Velocity <sup>(km/h)</sup></p>
+                        <p class="pCenterAlignment">{{ allISSData.velocity.toFixed(2) }}</p>
                     </td>
                     <td>
                         <p>Visibility</p>
-                        <p>{{ allISSData.visibility.charAt(0).toUpperCase() }}{{ allISSData.visibility.slice(1) }}</p>
+                        <p class="pCenterAlignment">{{ allISSData.visibility.charAt(0).toUpperCase() }}{{ allISSData.visibility.slice(1) }}</p>
                     </td>
                 </tr>
             </table>
@@ -45,6 +48,7 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Metrics",
@@ -55,11 +59,28 @@
             mapGetters(["allISSData"]),
         created() {
             this.getISSData();
+        },
+        data() {
+            return {
+                issAltitude:Glossary.methods.data().issAltitude,
+                issVelocity:Glossary.methods.data().issVelocity,
+                issVisibility:Glossary.methods.data().issVisibility
+            }
         }
     }
 </script>
 
 <style scoped>
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .metricsTable {
+        margin: 0 auto !important;
+        margin-top: 20px !important;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;

@@ -5,7 +5,6 @@ import issData from "@/store/modules/issData";
 import geolocation from "@/store/modules/geolocation";
 import pictureOfTheDay from "@/store/modules/pictureOfTheDay";
 import marsWeather from "@/store/modules/marsWeather";
-import marsPhotos from "@/store/modules/marsPhotos";
 import cometSearch from "@/store/modules/cometSearch";
 import cometDetail from "@/store/modules/cometDetail";
 import magneticField from "@/store/modules/magneticField";
@@ -21,7 +20,6 @@ export default new Vuex.Store({
         iss,
         issData,
         marsWeather,
-        marsPhotos,
         earth,
         magneticField,
         feltOnEarth,

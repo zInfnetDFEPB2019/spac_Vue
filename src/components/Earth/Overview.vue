@@ -12,89 +12,98 @@
                 </div>
 
                 <div>
-                    <table align="center" class="borderTable tableInfoEarthOverview">
+                    <table class="borderTable tableInfoEarthOverview">
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/earth_section_logo.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthMass }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/earth_section_logo.png"
                                        height="50" width="50" alt="earth icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/volume.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthVolume }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/volume.png"
                                        height="50" width="50" alt="earth volume icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/density.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthDensity }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/density.png"
                                        height="50" width="50" alt="earth materials density icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Mass <sup>(kg)</sup></p>
-                                <p>{{ allEarthData.mass.massValue }}<sup>{{ allEarthData.mass.massExponent }}</sup></p>
+                                <p class="pCenterAlignment">Mass<br><sup>(kg)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.mass.massValue }}<sup>{{ allEarthData.mass.massExponent }}</sup></p>
                             </td>
                             <td>
-                                <p>Volume <sup>(km3)</sup></p>
-                                <p>{{ allEarthData.vol.volValue }}<sup>{{ allEarthData.vol.volExponent }}</sup></p>
+                                <p class="pCenterAlignment">Volume<br><sup>(km3)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.vol.volValue }}<sup>{{ allEarthData.vol.volExponent }}</sup></p>
                             </td>
                             <td>
-                                <p>Density <sup>(g/cm3)</sup></p>
-                                <p>{{ allEarthData.density }}</p>
+                                <p class="pCenterAlignment">Density<br><sup>(g/cm3)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.density }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/gravity.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthGravity }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/gravity.png"
                                        height="50" width="50" alt="earth gravity icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/escape.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthEscape }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/escape.png"
                                        height="50" width="50" alt="earth escape icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/inclination.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthInclination }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/inclination.png"
                                        height="50" width="50" alt="mars season icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Gravity <sup>(m/s2)</sup></p>
-                                <p>{{ allEarthData.gravity }}</p>
+                                <p class="pCenterAlignment">Gravity<br><sup>(m/s2)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.gravity }}</p>
                             </td>
                             <td>
-                                <p>Escape <sup>(km/s)</sup></p>
-                                <p>{{ allEarthData.escape / 1000 }}</p>
+                                <p class="pCenterAlignment">Escape<br><sup>(km/s)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.escape / 1000 }}</p>
                             </td>
                             <td>
-                                <p>Inclination <sup>(Deg)</sup></p>
-                                <p>{{ allEarthData.inclination }}</p>
+                                <p class="pCenterAlignment">Inclination<br><sup>(Deg)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.inclination }}</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/radius.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthRadius }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/radius.png"
                                        height="50" width="50" alt="earth gravity icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sideral_orbit.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthSiderealOrbit }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sideral_orbit.png"
                                        height="50" width="50" alt="earth escape icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sideral_rotation.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: earthSiderealRotation }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sideral_rotation.png"
                                        height="50" width="50" alt="mars season icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Radius <sup>(km)</sup></p>
-                                <p>{{ allEarthData.meanRadius }}</p>
+                                <p class="pCenterAlignment">Earth<br>Radius<br><sup>(km)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.meanRadius }}</p>
                             </td>
                             <td>
-                                <p>Sideral Orbit <sup>(Days)</sup></p>
-                                <p>{{ allEarthData.sideralOrbit }}</p>
+                                <p class="pCenterAlignment">Sidereal<br>Orbit<br><sup>(Days)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.sideralOrbit }}</p>
                             </td>
                             <td>
-                                <p>Sideral Rotation <sup>(Hours)</sup></p>
-                                <p>{{ allEarthData.sideralRotation }}</p>
+                                <p class="pCenterAlignment">Sidereal<br>Rotation<br><sup>(Hours)</sup></p>
+                                <p class="pCenterAlignment">{{ allEarthData.sideralRotation }}</p>
                             </td>
                         </tr>
                     </table>
@@ -107,14 +116,24 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
     import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Overview",
         components: {Footer, Header},
-        data() {
+        data(){
             return {
+                earthMass:Glossary.methods.data().earthMass,
+                earthVolume:Glossary.methods.data().earthVolume,
+                earthDensity:Glossary.methods.data().earthDensity,
+                earthGravity:Glossary.methods.data().earthGravity,
+                earthEscape:Glossary.methods.data().earthEscape,
+                earthInclination:Glossary.methods.data().earthInclination,
+                earthRadius:Glossary.methods.data().earthRadius,
+                earthSiderealOrbit:Glossary.methods.data().earthSiderealOrbit,
+                earthSiderealRotation:Glossary.methods.data().earthSiderealRotation
             }
         },
         methods: {
@@ -130,10 +149,20 @@
 
 <style scoped>
 
-    .p {
+    .imgCenterAlignment {
         margin: 0 auto !important;
-        /*border: 1px solid red;*/
     }
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .dark,.popover,.b-popover,.bs-popover-top,.b-popover-body,.arrow,.bs-popover-auto {
+        border-color: #E2E2E2 !important;
+        background-color: #E2E2E2 !important;
+        color: white !important;
+    }
+
     .imageSection {
         margin-left: 50px;
     }
@@ -166,6 +195,7 @@
     }
 
     .tableInfoEarthOverview{
+        margin: 0 auto !important;
         margin-top: 25px;
     }
 </style>

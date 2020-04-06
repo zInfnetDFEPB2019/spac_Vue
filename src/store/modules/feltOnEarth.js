@@ -17,15 +17,14 @@ const actions = {
                 feltComets = Array();
 
             for (let i = 0; i < comets.length; i++) {
-
                 let
                     id = comets[i]["id"],
                     fall = comets[i]["fall"],
-                    lat = String(Number(comets[i]["reclat"]).toFixed(2)),
-                    long = String(Number(comets[i]["reclong"]).toFixed(2)),
+                    lat = FeltOnEarth.checkNullValue(String(Number(comets[i]["reclat"]).toFixed(2))),
+                    long = FeltOnEarth.checkNullValue(String(Number(comets[i]["reclong"]).toFixed(2))),
                     mass = FeltOnEarth.checkMassValue(comets[i]["mass"]),
                     name = comets[i]["name"],
-                    year = new Date(comets[i]["year"]).getFullYear();
+                    year = FeltOnEarth.checkNullValue(String(new Date(comets[i]["year"]).getFullYear()));
 
                 feltComets.push(new FeltOnEarth(id,fall,lat,long,mass,name,year));
             }

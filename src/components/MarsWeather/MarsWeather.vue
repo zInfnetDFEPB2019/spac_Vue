@@ -22,57 +22,63 @@
                 </div>
 
                 <div>
-                    <table align="center" class="borderTable" style="margin-top: 15px">
+                    <table class="borderTable tableMarsWeather">
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/earth_section_logo.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherDateEarth }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/earth_section_logo.png"
                                        height="50" width="50" alt="earth icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_section_logo.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherSol }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_section_logo.png"
                                        height="50" width="50" alt="mars icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/average_temperature.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherAverage }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/average_temperature.png"
                                        height="50" width="50" alt="average temperature icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/maximum_temperature.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherMaximum }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/maximum_temperature.png"
                                        height="50" width="50" alt="maximum temperature icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/minimum_temperature.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherMinimum }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/minimum_temperature.png"
                                        height="50" width="50" alt="minimum temperature icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_season.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: marsWeatherSeason }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/mars_season.png"
                                        height="50" width="50" alt="mars season icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Date Earth</p>
-                                <p>{{ allMarsWeather[0][6]._dateEarth }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[0][6]._dateEarth }}</p>
                             </td>
                             <td>
                                 <p>Sol</p>
-                                <p>{{ allMarsWeather[0][6]._sol }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[0][6]._sol }}</p>
                             </td>
                             <td>
                                 <p>Average <sup>(°C)</sup></p>
-                                <p>{{ allMarsWeather[0][6]._averageTemp }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[0][6]._averageTemp }}</p>
                             </td>
                             <td>
                                 <p>Maximum <sup>(°C)</sup></p>
-                                <p>{{ allMarsWeather[0][6]._maximumTemp }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[0][6]._maximumTemp }}</p>
                             </td>
                             <td>
                                 <p>Minimum <sup>(°C)</sup></p>
-                                <p>{{ allMarsWeather[0][6]._minimumTemp }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[0][6]._minimumTemp }}</p>
                             </td>
                             <td>
                                 <p>Season</p>
-                                <p>{{ allMarsWeather[3] }}</p>
+                                <p class="pCenterAlignment">{{ allMarsWeather[3] }}</p>
                             </td>
                         </tr>
                     </table>
@@ -89,6 +95,7 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
     import MarsTemperature from "@/components/MarsWeather/MarsTemperature";
@@ -98,8 +105,14 @@
     export default {
         name: "MarsWeather",
         components: {MarsPressure, MarsWind, MarsTemperature, Footer, Header},
-        data() {
+        data(){
             return {
+                marsWeatherDateEarth:Glossary.methods.data().marsWeatherDateEarth,
+                marsWeatherSol:Glossary.methods.data().marsWeatherSol,
+                marsWeatherAverage:Glossary.methods.data().marsWeatherAverage,
+                marsWeatherMaximum:Glossary.methods.data().marsWeatherMaximum,
+                marsWeatherMinimum:Glossary.methods.data().marsWeatherMinimum,
+                marsWeatherSeason:Glossary.methods.data().marsWeatherSeason
             }
         },
         methods: {
@@ -114,6 +127,19 @@
 </script>
 
 <style>
+
+    .imgCenterAlignment {
+        margin: 0 auto !important;
+    }
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .tableMarsWeather {
+        margin: 0 auto !important;
+        margin-top: 15px !important;
+    }
 
     #sectionMarsWeather {
         margin-bottom: 100px !important

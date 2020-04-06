@@ -6,5 +6,3 @@ Vue.filter('formatDate', function(value) {
         return moment(String(value)).format('MM/DD/YYYY hh:mm')
     }
 });
-
-// "2020-Mar-11 01:04"  Timezone GMT

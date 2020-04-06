@@ -10,25 +10,27 @@
         </div>
 
         <div>
-            <table align="center" class="borderTable">
+            <table class="borderTable locationTable">
                 <tr>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/lat.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issLatitude }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/lat.png"
                                height="50" width="50" alt="latitude icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/long.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issLongitude }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/long.png"
                                height="50" width="50" alt="longitude icon"></b-img>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>Latitude</p>
-                        <p>{{ allISSData.latitude.toFixed(3) }}</p>
+                        <p>Latitude <sup>(Deg)</sup></p>
+                        <p class="pCenterAlignment">{{ allISSData.latitude.toFixed(3) }}</p>
                     </td>
                     <td>
-                        <p>Longitude</p>
-                        <p>{{ allISSData.longitude.toFixed(3) }}</p>
+                        <p>Longitude <sup>(Deg)</sup></p>
+                        <p class="pCenterAlignment">{{ allISSData.longitude.toFixed(3) }}</p>
                     </td>
                 </tr>
             </table>
@@ -37,6 +39,7 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Location",
@@ -47,11 +50,27 @@
             mapGetters(["allISSData"]),
         created() {
             this.getISSData();
+        },
+        data(){
+            return {
+                issLatitude:Glossary.methods.data().issLatitude,
+                issLongitude:Glossary.methods.data().issLongitude
+            }
         }
     }
 </script>
 
 <style scoped>
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .locationTable {
+        margin: 0 auto !important;
+        margin-top: 20px !important;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;

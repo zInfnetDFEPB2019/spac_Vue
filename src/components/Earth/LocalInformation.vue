@@ -46,6 +46,7 @@
 </script>
 
 <style scoped>
+
     .imageSection {
         margin-left: 50px;
     }
@@ -84,4 +85,5 @@
     #sectionLocalInformation {
         margin-bottom: 100px !important;
     }
+
 </style>

@@ -10,17 +10,18 @@
         </div>
 
         <div>
-            <table align="center" class="borderTable">
+            <table class="borderTable idTable">
                 <tr>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/satellite_id.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: issSatelliteNumber }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/satellite_id.png"
                                height="50" width="50" alt="satellite id icon"></b-img>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Satellite Number</p>
-                        <p>{{ allISSData.id }}</p>
+                        <p class="pCenterAlignment">{{ allISSData.id }}</p>
                     </td>
                 </tr>
             </table>
@@ -30,6 +31,7 @@
 
 <script>
     import { mapGetters, mapActions } from "vuex";
+    import Glossary from "@/components/Glossary";
     export default {
         name: "Id",
         methods: {
@@ -39,11 +41,26 @@
             mapGetters(["allISSData"]),
         created() {
             this.getISSData();
+        },
+        data(){
+          return{
+              issSatelliteNumber:Glossary.methods.data().issSatelliteNumber
+          }
         }
     }
 </script>
 
 <style scoped>
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .idTable {
+        margin: 0 auto !important;
+        margin-top: 20px !important;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;
@@ -69,4 +86,5 @@
         margin-top: 50px !important;
         margin-left: 300px !important;
     }
+
 </style>

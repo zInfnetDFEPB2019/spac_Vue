@@ -67,4 +67,13 @@ export default class FeltOnEarth {
             return String(value);
         }
     }
+
+    static checkNullValue(value){
+        value = Number(value);
+        if (String(value) === "NaN"){
+            return "Unknown"
+        } else {
+            return String(value);
+        }
+    }
 }

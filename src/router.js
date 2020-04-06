@@ -8,11 +8,11 @@ import MarsWeather from "@/components/MarsWeather/MarsWeather";
 import LocalInformation from "@/components/Earth/LocalInformation";
 import ISS from "@/components/ISS/ISS";
 import PictureOfTheDay from "@/components/Space/PictureOfTheDay";
-import MarsPhotos from "@/components/MarsPhotos/MarsPhotos";
 import NewComet from "@/components/Space/NewComet";
 import MagneticField from "@/components/Earth/MagneticField";
 import Overview from "@/components/Earth/Overview";
 import FeltOnEarth from "@/components/Earth/FeltOnEarth";
+import NotFound from "@/components/NotFound/NotFound";
 
 Vue.use(VueRouter);
 
@@ -56,11 +56,6 @@ export default new VueRouter({
             component: MarsWeather
         },
         {
-            path:'/marsphotos',
-            name:'marsPhotos',
-            component: MarsPhotos
-        },
-        {
             path:'/overview',
             name:'overview',
             component: Overview
@@ -84,6 +79,15 @@ export default new VueRouter({
             path:'/iss',
             name:'ISS',
             component: ISS
+        },
+        {
+            path:'/notfound',
+            name:'NotFound',
+            component: NotFound
+        },
+        {
+            path: '*',
+            redirect: '/notfound'
         },
     ]
 });

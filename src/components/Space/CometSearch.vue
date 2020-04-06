@@ -51,15 +51,35 @@
                     <div class="borderTable">
                         <b-table sticky-header=true id="tableCometSearchSummarized" borderless hover :items="allComets" :fields="fields" :dark="true" responsive=true>
                             <template v-slot:cell(actions)="row">
-
                                 <router-link :to="{ name: 'cometDetail', params: { id: row.item._id } }">
-                                    <b-button variant="outline-dark" id="buttonInfo" size="sm" class="mr-1">
+                                    <b-button v-b-popover.hover.top.v-dark="{ content: 'More details' }"
+                                              variant="outline-dark" id="buttonInfo" size="sm" class="mr-1">
                                         <b-icon-box-arrow-right></b-icon-box-arrow-right>
                                     </b-button>
                                 </router-link>
 
-                                <b-button variant="outline-dark" id="buttonDelete" size="sm" @click="deleteComet(row.item._id)" class="mr-1"><b-icon-trash></b-icon-trash></b-button>
+                                <b-button v-b-popover.hover.top.v-dark="{ content: 'Delete comet' }"
+                                          variant="outline-dark" id="buttonDelete" size="sm" @click="deleteComet(row.item._id)" class="mr-1">
+                                    <b-icon-trash></b-icon-trash>
+                                </b-button>
                             </template>
+
+                            <template v-slot:head(id)="data">
+                                <span v-b-popover.hover.top.v-dark="{ content: cometSearchId }">{{ data.label }}</span>
+                            </template>
+
+                            <template v-slot:head(name)="data">
+                                <span v-b-popover.hover.top.v-dark="{ content: cometSearchName }">{{ data.label }}</span>
+                            </template>
+
+                            <template v-slot:head(absoluteMagnitude)="data">
+                                <span v-b-popover.hover.top.v-dark="{ content: cometSearchAbsoluteMagnitude }">{{ data.label }}</span>
+                            </template>
+
+                            <template v-slot:head(closeApproach)="data">
+                                <span v-b-popover.hover.top.v-dark="{ content: cometSearchCloseApproach }">{{ data.label }} <sup>(UTC)</sup></span>
+                            </template>
+
                         </b-table>
                     </div>
                 </div>
@@ -74,6 +94,7 @@
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
     import {mapActions, mapGetters} from "vuex";
+    import Glossary from "@/components/Glossary";
     export default {
         name: "CometSearch",
         components: {Footer, Header},
@@ -99,6 +120,10 @@
                     {key:'closeApproach',sortable: true},
                     { key: 'actions', label: 'Actions'}
                 ],
+                cometSearchId:Glossary.methods.data().cometSearchId,
+                cometSearchName:Glossary.methods.data().cometSearchName,
+                cometSearchAbsoluteMagnitude:Glossary.methods.data().cometSearchAbsoluteMagnitude,
+                cometSearchCloseApproach:Glossary.methods.data().cometSearchCloseApproach,
             }
         },
     }
@@ -116,10 +141,6 @@
 
     .bg-b-table-default {
         color: #E2E2E2 !important;
-    }
-
-    .calendar-grid {
-        background-color: red !important;
     }
 
     .borderTable {

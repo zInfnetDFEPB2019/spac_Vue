@@ -10,7 +10,20 @@
 
         <div class="container" id="divContainerTableSpaceCometInfoCloseApproach">
             <div class="borderTable">
-                <b-table sticky-header=true id="tableSpaceCometInfoCloseApproach" borderless hover :items="allCometDetails[0]._closeApproach" :fields="fields" :dark="true" responsive=true></b-table>
+                <b-table sticky-header=true id="tableSpaceCometInfoCloseApproach" borderless hover :items="allCometDetails[0]._closeApproach" :fields="fields" :dark="true" responsive=true>
+                    <template v-slot:head(_closeApproachDate)="data">
+                        <span v-b-popover.hover.top.v-dark="{ content: CloseApproachDate }">{{ data.label }} <sup>(UTC)</sup></span>
+                    </template>
+                    <template v-slot:head(_relativeVelocity)="data">
+                        <span v-b-popover.hover.top.v-dark="{ content: CloseApproachRelativeVelocity }">{{ data.label }} <sup>(km/h)</sup></span>
+                    </template>
+                    <template v-slot:head(_missDistance)="data">
+                        <span v-b-popover.hover.top.v-dark="{ content: CloseApproachMissDistance }">{{ data.label }} <sup>(km)</sup></span>
+                    </template>
+                    <template v-slot:head(_orbitingBody)="data">
+                        <span v-b-popover.hover.top.v-dark="{ content: CloseApproachOrbitingBody }">{{ data.label }}</span>
+                    </template>
+                </b-table>
             </div>
         </div>
     </div>
@@ -18,6 +31,7 @@
 
 <script>
     import {mapActions, mapGetters} from "vuex";
+    import Glossary from "@/components/Glossary";
     export default {
         name: "CloseApproach",
         props: {
@@ -33,10 +47,14 @@
             return {
                 fields: [
                     {key:'_closeApproachDate',sortable: true,label:'Close Approach Date'},
-                    {key:'_relativeVelocity',sortable: true,label:'Relative Velocity km/h'},
-                    {key:'_missDistance',sortable: true,label:'Miss Distance km'},
+                    {key:'_relativeVelocity',sortable: true,label:'Relative Velocity'},
+                    {key:'_missDistance',sortable: true,label:'Miss Distance'},
                     {key:'_orbitingBody',sortable: true},
                 ],
+                CloseApproachDate:Glossary.methods.data().CloseApproachDate,
+                CloseApproachRelativeVelocity:Glossary.methods.data().CloseApproachRelativeVelocity,
+                CloseApproachMissDistance:Glossary.methods.data().CloseApproachMissDistance,
+                CloseApproachOrbitingBody:Glossary.methods.data().CloseApproachOrbitingBody,
             }
         },
 

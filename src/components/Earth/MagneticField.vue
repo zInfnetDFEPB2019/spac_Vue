@@ -12,33 +12,36 @@
                 </div>
 
                 <div>
-                    <table align="center" class="borderTable tableMagneticField">
+                    <table class="borderTable tableMagneticField">
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/compass.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: magneticDeclination }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/compass.png"
                                        height="50" width="50" alt="magnetic declination icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/inclination.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: magneticInclination }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/inclination.png"
                                        height="50" width="50" alt="magnetic inclination icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/intensity.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: magneticTotal_intensity }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/intensity.png"
                                        height="50" width="50" alt="magnetic field total intensity icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Declination <sup>({{ allMagneticFieldData.declination.units }})</sup></p>
-                                <p>{{ (allMagneticFieldData.declination.value).toFixed(3) }}</p>
+                                <p class="pCenterAlignment">{{ (allMagneticFieldData.declination.value).toFixed(3) }}</p>
                             </td>
                             <td>
                                 <p>Inclination <sup>({{ allMagneticFieldData.inclination.units }})</sup></p>
-                                <p>{{ (allMagneticFieldData.inclination.value).toFixed(3) }}</p>
+                                <p class="pCenterAlignment">{{ (allMagneticFieldData.inclination.value).toFixed(3) }}</p>
                             </td>
                             <td>
                                 <p>Total Intensity <sup>({{ allMagneticFieldData.total_intensity.units }})</sup></p>
-                                <p>{{ (allMagneticFieldData.total_intensity.value).toFixed(3) }}</p>
+                                <p class="pCenterAlignment">{{ (allMagneticFieldData.total_intensity.value).toFixed(3) }}</p>
                             </td>
                         </tr>
                     </table>
@@ -51,10 +54,10 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
     import { mapGetters, mapActions } from "vuex";
-
     export default {
         name: "MagneticField",
         components: {Footer, Header},
@@ -65,11 +68,23 @@
             mapGetters(["allMagneticFieldData"]),
         created() {
             this.getMagneticFieldData();
+        },
+        data(){
+            return {
+                magneticDeclination:Glossary.methods.data().magneticDeclination,
+                magneticInclination:Glossary.methods.data().magneticInclination,
+                magneticTotal_intensity:Glossary.methods.data().magneticTotal_intensity
+            }
         }
     }
 </script>
 
 <style scoped>
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
     .imageSection {
         margin-left: 50px;
     }
@@ -110,6 +125,8 @@
     }
 
     .tableMagneticField {
-        margin-top: 40px;
+        margin: 0 auto !important;
+        margin-top: 40px !important;
     }
+
 </style>

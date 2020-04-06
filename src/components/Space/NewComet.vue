@@ -11,98 +11,107 @@
                     </b-row>
                 </div>
                 <div>
-                    <table align="center" class="borderTable">
+                    <table class="borderTable tableNewComet">
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_info.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometId }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_info.png"
                                        height="50" width="50" alt="comet info icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_designation.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometDesignation }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_designation.png"
                                        height="50" width="50" alt="comet designation icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>ID</p>
-                                <p>{{ comet_add._id }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._id" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._id }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._id" type="text" required/>
                             </td>
                             <td>
                                 <p>Designation</p>
-                                <p>{{ comet_add._name }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._name" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._name }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._name" type="text" required/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/close_approach.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometCloseApproach }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/close_approach.png"
                                        height="50" width="50" alt="comet close approach icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/potentially_hazard.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometPotentiallyHazard }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/potentially_hazard.png"
                                        height="50" width="50" alt="comet potentially hazard icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sentry_object.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometSentryObject }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sentry_object.png"
                                        height="50" width="50" alt="comet sentry object icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Close Approach</p>
-                                <p>{{ comet_add._closeApproach }}</p>
-                                <b-form-datepicker class="inputEditComet" size="sm" v-model="comet_add._closeApproach" type="date" required/>
+                                <p class="pCenterAlignment">{{ comet_add._closeApproach }}</p>
+                                <b-form-datepicker class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._closeApproach" type="date" required/>
                             </td>
                             <td>
                                 <p>Potentially Hazard</p>
-                                <p>{{ comet_add._potentiallyHazardous }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._potentiallyHazardous" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._potentiallyHazardous }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._potentiallyHazardous" type="text" required/>
                             </td>
                             <td>
                                 <p>Sentry Object</p>
-                                <p>{{ comet_add._sentryObject }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._sentryObject" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._sentryObject }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._sentryObject" type="text" required/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/absolute_magnitude.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometAbsoluteMagnitude }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/absolute_magnitude.png"
                                        height="50" width="50" alt="comet absolute magnitude icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/diameter.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometEstimatedDiameter }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/diameter.png"
                                        height="50" width="50" alt="comet estimated diameter icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_velocity.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometRelativeVelocity }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/iss_velocity.png"
                                        height="50" width="50" alt="comet velocity icon"></b-img>
                             </td>
                             <td>
-                                <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_miss_distance.png"
+                                <b-img v-b-popover.hover.top.v-dark="{ content: cometMissDistance }"
+                                       src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_miss_distance.png"
                                        height="50" width="50" alt="comet miss distance icon"></b-img>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>Absolute Magnitude</p>
-                                <p>{{ comet_add._absoluteMagnitude }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._absoluteMagnitude" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._absoluteMagnitude }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._absoluteMagnitude" type="text" required/>
                             </td>
                             <td>
                                 <p>Estimated Diameter <sup>(m)</sup></p>
-                                <p>{{ comet_add._estimatedDiameterAvg }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._estimatedDiameterAvg" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._estimatedDiameterAvg }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._estimatedDiameterAvg" type="text" required/>
                             </td>
                             <td>
                                 <p>Relative Velocity <sup>(km/h)</sup></p>
-                                <p>{{ comet_add._relativeVelocity }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._relativeVelocity" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._relativeVelocity }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._relativeVelocity" type="text" required/>
                             </td>
                             <td>
                                 <p>Miss Distance <sup>(km)</sup></p>
-                                <p>{{ comet_add._missDistance }}</p>
-                                <b-form-input class="inputEditComet" size="sm" v-model="comet_add._missDistance" type="text" required/>
+                                <p class="pCenterAlignment">{{ comet_add._missDistance }}</p>
+                                <b-form-input class="inputEditComet inputCenterAlignment" size="sm" v-model="comet_add._missDistance" type="text" required/>
                             </td>
                         </tr>
                     </table>
@@ -121,6 +130,7 @@
     import { mapGetters, mapActions } from "vuex";
     import Header from "@/components/Header";
     import Footer from "@/components/Footer";
+    import Glossary from "@/components/Glossary";
     export default {
         name: "NewComet",
         data() {
@@ -131,6 +141,15 @@
                     _estimatedDiameterAvg:"", _potentiallyHazardous:"", _closeApproach:"",
                     _relativeVelocity:"", _missDistance:"", _sentryObject:""
                 },
+                cometAbsoluteMagnitude:Glossary.methods.data().cometAbsoluteMagnitude,
+                cometDesignation:Glossary.methods.data().cometDesignation,
+                cometEstimatedDiameter:Glossary.methods.data().cometEstimatedDiameter,
+                cometPotentiallyHazard:Glossary.methods.data().cometPotentiallyHazard,
+                cometSentryObject:Glossary.methods.data().cometSentryObject,
+                cometId:Glossary.methods.data().cometId,
+                cometCloseApproach:Glossary.methods.data().cometCloseApproach,
+                cometRelativeVelocity:Glossary.methods.data().cometRelativeVelocity,
+                cometMissDistance:Glossary.methods.data().cometMissDistance,
             };
         },
         computed: mapGetters([""]),
@@ -149,13 +168,25 @@
 
 <style scoped>
 
-    table {
-        align-items: center !important;
+    .imgCenterAlignment {
+        margin: 0 auto !important;
     }
 
-    tr,td {
-        text-align: center !important;
+    .inputCenterAlignment {
+        margin: 5px auto !important;
     }
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .tableNewComet {
+        margin: 0 auto !important;
+    }
+
+    /*tr,td {*/
+    /*    text-align: center !important;*/
+    /*}*/
 
     #sectionCometEdit {
         margin-bottom: 100px !important;

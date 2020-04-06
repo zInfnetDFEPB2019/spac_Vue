@@ -9,7 +9,7 @@
                                height="75" width="75" alt="comet info icon section"></b-img>
                         <p class="titleSection">COMET DETAILS</p>
                     </b-row>
-                    <button id="buttonTrigger" @click="trigger()">Rota</button>
+                    <b-button id="buttonTrigger" ref="buttonTrigger" @click="trigger()" variant="outline-dark">Details</b-button>
                 </div>
 
                 <div>
@@ -37,14 +37,16 @@
               this.getCometDetails(this.$route.params.id);
             },
             created() {
-                this.getCometDetails(this.$route.params.id);
+                // this.$refs.buttonTrigger.click();
+                // this.getCometDetails(this.$route.params.id);
             },
+
         },
         computed:
             mapGetters(["allCometDetails","detailedCometById"]),
         data() {
             return {
-                id : this.$route.params.id
+                id : this.$route.params.id,
             }
         }
     }
@@ -53,11 +55,11 @@
 <style>
 
     /*#buttonTrigger {*/
-    /*    display: none;*/
+    /*    !*display: none;*!*/
     /*}*/
 
     #sectionCometInfo {
-        margin-bottom: 100px !important;
+        margin-bottom: 150px !important;
     }
     .contentDivSpaceCometInfo {
         margin-top: 50px !important;

@@ -10,33 +10,36 @@
         </div>
 
         <div>
-            <table align="center" class="borderTable">
+            <table class="borderTable moonTable">
                 <tr>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moonrise.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: moonrise }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moonrise.png"
                                height="50" width="50" alt="moonrise icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moonset.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: moonset }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moonset.png"
                                height="50" width="50" alt="moonset icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moon_distance.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: moonDistance }"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/moon_distance.png"
                                height="50" width="50" alt="moon distance icon"></b-img>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Moonrise</p>
-                        <p>{{ allGeolocationData.moonrise }}</p>
+                        <p class="pCenterAlignment">{{ allGeolocationData.moonrise }}</p>
                     </td>
                     <td>
                         <p>Moonset</p>
-                        <p>{{ allGeolocationData.moonset }}</p>
+                        <p class="pCenterAlignment">{{ allGeolocationData.moonset }}</p>
                     </td>
                     <td>
                         <p>Moon Distance <sup>(km)</sup></p>
-                        <p>{{ allGeolocationData.moon_distance.toFixed(2) }}</p>
+                        <p class="pCenterAlignment">{{ allGeolocationData.moon_distance.toFixed(2) }}</p>
                     </td>
                 </tr>
             </table>
@@ -45,6 +48,7 @@
 </template>
 
 <script>
+    import Glossary from "@/components/Glossary";
     import { mapGetters, mapActions } from "vuex";
     export default {
         name: "Moon",
@@ -55,11 +59,28 @@
             mapGetters(["allGeolocationData"]),
         created() {
             this.getGeolocationData();
+        },
+        data(){
+            return {
+                moonrise:Glossary.methods.data().moonrise,
+                moonset:Glossary.methods.data().moonset,
+                moonDistance:Glossary.methods.data().moonDistance
+            }
         }
     }
 </script>
 
 <style scoped>
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
+    .moonTable {
+        margin: 0 auto !important;
+        margin-top: 15px !important;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;
@@ -85,4 +106,5 @@
         margin-top: 50px !important;
         margin-left: 300px !important;
     }
+
 </style>

@@ -10,8 +10,8 @@
         </div>
 
         <div>
-            <table align="center" class="borderTable">
-                <tr >
+            <table class="borderTable crewTable">
+                <tr>
                     <td v-for="member in allMembers"
                         :key="member.name">
                         <a id="crewMembersLink" :href="`https://google.com/search?q=${member.name}`">{{ member.name }}</a>
@@ -38,6 +38,11 @@
 </script>
 
 <style scoped>
+
+    .crewTable {
+        margin: 0 auto !important;
+        margin-top: 20px !important;
+    }
 
     #crewMembersLink {
         color: #E2E2E2;
@@ -68,4 +73,5 @@
         margin-top: 50px !important;
         margin-left: 300px !important;
     }
+
 </style>

@@ -17,49 +17,59 @@
         </div>
 
         <div>
-            <table align="center" class="borderTable">
+            <table class="borderTable tableCometData">
                 <tr>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/absolute_magnitude.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: cometAbsoluteMagnitude }"
+                               class="imgCenterAlignment"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/absolute_magnitude.png"
                                height="50" width="50" alt="comet absolute magnitude icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_designation.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: cometDesignation }"
+                               class="imgCenterAlignment"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/comet_designation.png"
                                height="50" width="50" alt="comet designation icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/diameter.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: cometEstimatedDiameter }"
+                               class="imgCenterAlignment"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/diameter.png"
                                height="50" width="50" alt="comet estimated diameter icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/potentially_hazard.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: cometPotentiallyHazard }"
+                               class="imgCenterAlignment"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/potentially_hazard.png"
                                height="50" width="50" alt="comet potentially hazard icon"></b-img>
                     </td>
                     <td>
-                        <b-img src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sentry_object.png"
+                        <b-img v-b-popover.hover.top.v-dark="{ content: cometSentryObject }"
+                               class="imgCenterAlignment"
+                               src="https://raw.githubusercontent.com/christianvajgel/spa_c_assets/master/images/sentry_object.png"
                                height="50" width="50" alt="comet sentry object icon"></b-img>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Absolute Magnitude</p>
-                        <p>{{ allCometDetails[0]._absoluteMagnitude }}</p>
+                        <p class="pCenterAlignment">{{ allCometDetails[0]._absoluteMagnitude }}</p>
                     </td>
                     <td>
                         <p>Designation</p>
-                        <p>{{ allCometDetails[0]._name }}</p>
+                        <p class="pCenterAlignment">{{ allCometDetails[0]._name }}</p>
                     </td>
                     <td>
                         <p>Estimated Diameter <sup>(m)</sup></p>
-                        <p>{{ allCometDetails[0]._estimatedDiameterAvg }}</p>
+                        <p class="pCenterAlignment">{{ allCometDetails[0]._estimatedDiameterAvg }}</p>
                     </td>
                     <td>
                         <p>Potentially Hazard</p>
-                        <p>{{ allCometDetails[0]._potentiallyHazardous }}</p>
+                        <p class="pCenterAlignment">{{ allCometDetails[0]._potentiallyHazardous }}</p>
                     </td>
                     <td>
                         <p>Sentry Object</p>
-                        <p>{{ allCometDetails[0]._sentryObject }}</p>
+                        <p class="pCenterAlignment">{{ allCometDetails[0]._sentryObject }}</p>
                     </td>
                 </tr>
             </table>
@@ -69,6 +79,7 @@
 
 <script>
     import {mapActions, mapGetters} from "vuex";
+    import Glossary from "@/components/Glossary";
     export default {
         name: "CometData",
         props: {
@@ -88,14 +99,31 @@
             mapGetters(["allCometDetails"]),
         data() {
             return {
-                id : this.$route.params.id
+                id : this.$route.params.id,
+                cometAbsoluteMagnitude:Glossary.methods.data().cometAbsoluteMagnitude,
+                cometDesignation:Glossary.methods.data().cometDesignation,
+                cometEstimatedDiameter:Glossary.methods.data().cometEstimatedDiameter,
+                cometPotentiallyHazard:Glossary.methods.data().cometPotentiallyHazard,
+                cometSentryObject:Glossary.methods.data().cometSentryObject,
             }
         },
-
     }
 </script>
 
 <style scoped>
+
+    .tableCometData {
+        margin: 5px auto 0;
+    }
+
+    .imgCenterAlignment {
+        margin: 0 auto !important;
+    }
+
+    .pCenterAlignment {
+        margin: 5px auto !important;
+    }
+
     td {
         padding-left: 30px;
         padding-right: 30px;
